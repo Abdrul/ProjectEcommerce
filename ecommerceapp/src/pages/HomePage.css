@@ -1,6 +1,21 @@
 .main-home-page {
     height: 100vh;
     background: rgba(35, 170, 73, 0.11);
+    position: relative;
+}
+
+.main-home-page::after {
+    content: url("../../public/images/feuillehd.png");
+    position: absolute;
+    top: 30px;
+    right: 25px;
+}
+
+.main-home-page::before {
+    content: url("../../public/images/feuillebg.png");
+    position: absolute;
+    bottom: 30%;
+    left: 25px;
 }
 
 .description-app-container {
@@ -9,6 +24,13 @@
     align-items: center;
     justify-content: center;
     padding: 75px 25px 0;
+}
+
+.description-app-container::after {
+    content: url("../../public/images/feuilleblur.png");
+    position: absolute;
+    top: 50%;
+    right: 0;
 }
 
 .description-app-container h1, p {
