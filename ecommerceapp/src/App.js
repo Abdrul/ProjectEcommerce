@@ -23,7 +23,6 @@ body, html {
   --title-product: #1B1C1E;
   --description: #979899;
 }
-
 `
 
 

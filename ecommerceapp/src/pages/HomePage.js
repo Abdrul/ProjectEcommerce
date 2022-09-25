@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
-import styled, {createGlobalStyle} from "styled-components";
+import styled from "styled-components";
 
 const Main = styled.main`
     height: 100vh;
@@ -69,7 +69,8 @@ const WrapperDescriptionContainer = styled.div`
         }
 `
 const WrapperImgDescription = styled.div`
-    padding-top: 40px;
+    position: fixed;
+    bottom: 0;
 
         img {
             width: 100%;
