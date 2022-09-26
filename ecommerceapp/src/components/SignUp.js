@@ -1,24 +1,50 @@
-import React from 'react'
+import React, {useState, useRef} from 'react'
 import styled from "styled-components";
-
+import {auth} from "../utils/firebase.config"
 
 function SignUp() {
 
+const [signupInfo, setSignupInfo] = useState({
+  username: "",
+  email: "",
+  password:""
+});
+
+const [errorForm, setErrorForm] = useState("");
+
+const handleOnChange = (e) => {
+  setSignupInfo({...signupInfo, [e.target.name]: e.target.value})
+}
+
+const handleSubmit = (e) => {
+  e.preventDefault();
   
+  try{
+    
+    auth.createUserWithEmailAndPassword(signupInfo.email, signupInfo.password);
+
+  } catch(error) {
+    console.log(error);
+  }
+
+};
+
+
+
   return (
     <div>
-      <Form composant={Form}>
+      <Form onSubmit={handleSubmit} composant={Form}>
         <WrapperInput>
           <label htmlFor="username">Username</label>
-          <input type="text" id="username"/>
+          <input onChange={handleOnChange} type="text" id="username" name='username' required/>
         </WrapperInput>
         <WrapperInput>
           <label htmlFor="email">Email</label>
-          <input type="email" id='email'/>
+          <input onChange={handleOnChange} type="email" id='email' name='email' required/>
         </WrapperInput>
         <WrapperInput>
           <label htmlFor="password">Password</label>
-          <input type="password" id='password'/>
+          <input onChange={handleOnChange} type="password" id='password' name='password' required/>
         </WrapperInput>
         <button>Continue</button>
         <p>By clicking on “Continue” you are agreeing to our <span>terms of use</span></p>
