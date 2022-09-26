@@ -14,14 +14,25 @@ const [errorForm, setErrorForm] = useState("");
 
 const handleOnChange = (e) => {
   setSignupInfo({...signupInfo, [e.target.name]: e.target.value})
-}
+};
 
 const handleSubmit = (e) => {
   e.preventDefault();
   
   try{
     
-    auth.createUserWithEmailAndPassword(signupInfo.email, signupInfo.password);
+    if(signupInfo.email && signupInfo.password && signupInfo.username) {
+      console.log(signupInfo.email, signupInfo.password, signupInfo.username);
+
+      auth.createUserWithEmailAndPassword(signupInfo.email, signupInfo.password)
+      .then(async (userAuth) => {
+        await userAuth.user.updateProfile({displayName: signupInfo.username})
+      });
+
+      setErrorForm("");
+    } else {
+      setErrorForm("All fields must be filled in");
+    }
 
   } catch(error) {
     console.log(error);
@@ -36,18 +47,19 @@ const handleSubmit = (e) => {
       <Form onSubmit={handleSubmit} composant={Form}>
         <WrapperInput>
           <label htmlFor="username">Username</label>
-          <input onChange={handleOnChange} type="text" id="username" name='username' required/>
+          <input onChange={handleOnChange} type="text" id="username" name='username'/>
         </WrapperInput>
         <WrapperInput>
           <label htmlFor="email">Email</label>
-          <input onChange={handleOnChange} type="email" id='email' name='email' required/>
+          <input onChange={handleOnChange} type="email" id='email' name='email'/>
         </WrapperInput>
         <WrapperInput>
           <label htmlFor="password">Password</label>
-          <input onChange={handleOnChange} type="password" id='password' name='password' required/>
+          <input onChange={handleOnChange} type="password" id='password' name='password' minLength="6"/>
         </WrapperInput>
+        <ErrorMsg>{errorForm}</ErrorMsg>
         <button>Continue</button>
-        <p>By clicking on “Continue” you are agreeing to our <span>terms of use</span></p>
+        <p className='info-terms'>By clicking on “Continue” you are agreeing to our <span>terms of use</span></p>
       </Form>
     </div>
   )
@@ -70,7 +82,7 @@ const Form = styled.form`
       font-size: 16px;
     }
     
-    p {
+    .info-terms {
       margin-top: 15px;
       text-align: center;
       color: var(--description);
@@ -81,6 +93,10 @@ const Form = styled.form`
       }
 
     }
+`
+
+const ErrorMsg = styled.p`
+  color: var(--price);
 `
 
 const WrapperInput = styled.div`
