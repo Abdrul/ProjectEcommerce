@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react'
 import styled from "styled-components";
-import {auth} from "../utils/firebase.config"
 import {useNavigate} from "react-router-dom"
+import {auth} from "../../utils/firebase.config"
 
 
 function SignUp() {

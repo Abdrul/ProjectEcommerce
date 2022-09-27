@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Login from '../components/Login'
-import SignUp from '../components/SignUp'
+import Login from '../components/AuthForm/Login';
+import SignUp from '../components/AuthForm/SignUp';
 import styled from "styled-components";
 
 

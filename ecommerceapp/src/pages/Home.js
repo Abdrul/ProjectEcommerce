@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {UidContext} from '../components/AppContext'
 
 function Home() {
+
+  const uid = useContext(UidContext);
+  console.log(uid.email);
+
   return (
-    <div>Home</div>
+    <div> {uid.email} </div>
   )
 }
 
