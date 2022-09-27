@@ -1,7 +1,41 @@
-import HomePage from './pages/HomePage';
+import HomePage from './pages/Intro';
 import Registration from './pages/Registration';
 import {Routes, Route, Link} from "react-router-dom"
 import styled, {createGlobalStyle} from "styled-components";
+import { useState } from 'react';
+import {onAuthStateChanged} from 'firebase/auth';
+import { auth } from './utils/firebase.config';
+import Home from './pages/Home';
+
+
+function App() {
+
+  const [user, setUser] = useState(null);
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+  // console.log(user);
+
+  return (
+    <div className="App">
+
+      <GlobalStyle/>
+
+      <Routes>
+
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/login' element={<Registration/>}/>
+        <Route path='/home' element={<Home/>}/>
+
+
+      </Routes>
+
+
+    </div>
+  );
+}
 
 const GlobalStyle = createGlobalStyle`
 *, ::before, ::after {
@@ -24,25 +58,5 @@ body, html {
   --description: #979899;
 }
 `
-
-
-function App() {
-  return (
-    <div className="App">
-
-      <GlobalStyle/>
-
-      <Routes>
-
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/login' element={<Registration/>}/>
-
-
-      </Routes>
-
-
-    </div>
-  );
-}
 
 export default App;

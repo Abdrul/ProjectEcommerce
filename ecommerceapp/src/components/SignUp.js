@@ -1,8 +1,12 @@
 import React, {useState, useRef} from 'react'
 import styled from "styled-components";
 import {auth} from "../utils/firebase.config"
+import {useNavigate} from "react-router-dom"
+
 
 function SignUp() {
+
+const navigate = useNavigate();
 
 const [signupInfo, setSignupInfo] = useState({
   username: "",
@@ -22,14 +26,14 @@ const handleSubmit = (e) => {
   try{
     
     if(signupInfo.email && signupInfo.password && signupInfo.username) {
-      console.log(signupInfo.email, signupInfo.password, signupInfo.username);
-
+      
       auth.createUserWithEmailAndPassword(signupInfo.email, signupInfo.password)
       .then(async (userAuth) => {
         await userAuth.user.updateProfile({displayName: signupInfo.username})
       });
 
       setErrorForm("");
+      navigate('/home');
     } else {
       setErrorForm("All fields must be filled in");
     }
@@ -80,6 +84,7 @@ const Form = styled.form`
       color: #fff;
       border: none;
       font-size: 16px;
+      font-family: "DM Sans", sans-serif;
     }
     
     .info-terms {

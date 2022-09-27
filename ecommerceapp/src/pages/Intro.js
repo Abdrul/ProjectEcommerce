@@ -40,6 +40,7 @@ const Main = styled.main`
         position: absolute;
         bottom: 30%;
         left: 25px;
+        z-index: 100;
     }
 `
 
