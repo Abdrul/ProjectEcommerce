@@ -29,7 +29,8 @@ const handleSubmit = (e) => {
       
       auth.createUserWithEmailAndPassword(signupInfo.email, signupInfo.password)
       .then(async (userAuth) => {
-        await userAuth.user.updateProfile({displayName: signupInfo.username})
+        await userAuth.user.updateProfile({displayName: signupInfo.username});
+        window.location.reload();
       });
 
       setErrorForm("");
