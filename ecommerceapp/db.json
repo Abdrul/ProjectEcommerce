@@ -1,7 +1,27 @@
 {
-    "items": [
-        { "id":1, "name": "salad"},
+    "fruits": [
+        { "id":1, "name": "salad", "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"},
         { "id":2, "name": "tomato"},
-        { "id":3, "name": "courgette"}
+        { "id":3, "name": "courgette"},
+        { "id":4, "name": "citron"}
+    ],
+    "vegetables": [
+        {"id": 1, "name": "tomato", "imgUrl": ""},
+        {"id": 2, "name": "tomato", "imgUrl": ""},
+        {"id": 3, "name": "tomato", "imgUrl": ""},
+        {"id": 4, "name": "tomato", "imgUrl": ""},
+        {"id": 5, "name": "tomato", "imgUrl": ""},
+        {"id": 6, "name": "tomato", "imgUrl": ""}
+    ],
+    "diary": [
+        {"id": 1, "name": "tomato", "imgUrl": ""},
+        {"id": 2, "name": "tomato", "imgUrl": ""},
+        {"id": 3, "name": "tomato", "imgUrl": ""},
+        {"id": 4, "name": "tomato", "imgUrl": ""}
+    ],
+    "meat": [
+        {"id": 1, "name": "tomato", "imgUrl": ""},
+        {"id": 2, "name": "tomato", "imgUrl": ""},
+        {"id": 3, "name": "tomato", "imgUrl": ""}
     ]
 }

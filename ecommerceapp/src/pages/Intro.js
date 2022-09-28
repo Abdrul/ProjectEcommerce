@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 
 
-function HomePage() {
+function Intro() {
 
     return (
         <Main>
@@ -100,4 +100,4 @@ const WrapperImgDescription = styled.div`
         }
 `
 
-export default HomePage
+export default Intro
