@@ -17,7 +17,7 @@ function SlidersOffers() {
     >
       <WrapperSlider>
         <img src={"/images/bgOffers.png"} alt="" />
-        <div className="div-after">
+        <div className="content-container bgGreen">
           <span>Ramadan Offers</span>
           <p>Get 25%</p>
           <button>Grab Offer</button>
@@ -25,7 +25,7 @@ function SlidersOffers() {
       </WrapperSlider>
       <WrapperSlider>
         <img src={"/images/bgOffers.png"} alt="" />
-        <div className="div-after">
+        <div className="content-container bgRed">
           <span>Ramadan Offers</span>
           <p>Get 25%</p>
           <button>Grab Offer</button>
@@ -33,7 +33,7 @@ function SlidersOffers() {
       </WrapperSlider>
       <WrapperSlider>
         <img src={"/images/bgOffers.png"} alt="" />
-        <div className="div-after">
+        <div className="content-container bgBlack">
           <span>Ramadan Offers</span>
           <p>Get 25%</p>
           <button>Grab Offer</button>
@@ -53,13 +53,12 @@ const WrapperSlider = styled.div`
     object-fit: cover;
   }
 
-  .div-after {
+  .content-container {
     position: absolute;
     top: 0;
     left: 50%;
-    background: var(--background);
     width: 145px;
-    height: calc(100% - 6px);
+    height: 100%;
     border-radius: 10% 0% 0% 10% / 50% 0% 0% 50%;
     display: flex;
     flex-direction: column;
@@ -83,6 +82,18 @@ const WrapperSlider = styled.div`
       color: #6ba821;
       background: #fff;
     }
+  }
+
+  .bgGreen {
+    background: var(--background);
+  }
+
+  .bgRed {
+    background: var(--price);
+  }
+
+  .bgBlack {
+    background: #000;
   }
 `;
 

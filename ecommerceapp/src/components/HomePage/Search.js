@@ -27,32 +27,3 @@ const WrapperSearch = styled.div`
 `;
 
 export default Search;
-
-// const handleChange = async (e) => {
-//     try {
-//         e.preventDefault();
-//         const baseURL = "http://localhost:8080";
-//         const user = JSON.parse(localStorage.getItem('user'));
-//         const accessToken = localStorage.getItem('token');
-//         let formData = new FormData();
-//             formData.append('name', name);
-//             formData.append('email', email);
-//             formData.append('first_name', first_name);
-//             formData.append('password', password);
-//             formData.append('userId', user.id);
-//         let axiosConfig = {
-//             headers: {
-//                 'x-access-token': accessToken
-//             }
-//         };
-//         let changeInfos = await axios.put(`${baseURL}/api/user/changeInfos`, {
-//             headers: {
-//                 'x-access-token': accessToken
-//             },
-//             body: formData
-
-//         }, axiosConfig);
-//     } catch (err) {
-//         console.log(err);
-//     }
-// }
