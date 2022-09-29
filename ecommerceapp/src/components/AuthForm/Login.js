@@ -32,7 +32,6 @@ const handleSubmit = async (e) => {
         loginInfo.email,
         loginInfo.password
         )
-        console.log(user);
 
       setErrorForm("");
       navigate('/home');
