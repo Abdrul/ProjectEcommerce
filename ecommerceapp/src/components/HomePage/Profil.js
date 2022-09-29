@@ -1,6 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react'
 import {UidContext} from '../../components/AppContext'
-import axios from "axios";
 import {signOut} from "firebase/auth"
 import { auth } from '../../utils/firebase.config';
 import {useNavigate} from "react-router-dom"
@@ -56,31 +55,32 @@ const Header = styled.header`
     justify-content: space-between;
     margin-top: 15px;
 
-        .wrapper-name {
-            display: grid;
-            grid-template-areas: 
-            "emoji welcome"
-            "emoji name"
-            ;
-            
-            .emoji {
-                grid-area: emoji;
-                align-self: center;
-                padding-right: 15px;
-            }
-
-            .welcome-text {
-                grid-area: welcome;
-                color: var(--description);
-                font-size: 14px;
-            }
-            
-            p {
-                grid-area: name;
-                font-size: 18px;
-                padding-top: 5px;
-            }
+    .wrapper-name {
+        display: grid;
+        grid-template-areas: 
+        "emoji welcome"
+        "emoji name"
+        ;
+        
+        .emoji {
+            grid-area: emoji;
+            align-self: center;
+            padding-right: 15px;
         }
+
+        .welcome-text {
+            grid-area: welcome;
+            color: var(--description);
+            font-size: 14px;
+        }
+        
+        p {
+            grid-area: name;
+            font-size: 18px;
+            padding-top: 5px;
+            color: var(--title-section);
+        }
+    }
 `
 
 const WrapperImgs = styled.div`

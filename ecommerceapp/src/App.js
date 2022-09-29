@@ -55,6 +55,7 @@ body, html {
   --light-background: #F3F5F7;
   --title-product: #1B1C1E;
   --description: #979899;
+  --title-section: #06161C;
 }
 `
 

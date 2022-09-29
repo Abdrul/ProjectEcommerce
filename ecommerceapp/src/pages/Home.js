@@ -1,6 +1,7 @@
 import React from "react"
 import Profil from "../components/HomePage/Profil"
 import styled from "styled-components"
+import Search from "../components/HomePage/Search"
 
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
   return (
     <WrapperHome>
       <Profil/>
+      <Search/>
     </WrapperHome>
   )
 };
