@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Search from "../components/HomePage/Search";
 import SlidersOffers from "../components/HomePage/SlidersOffers";
 import Categories from "../components/HomePage/Categories";
+import BestSelling from "../components/HomePage/BestSelling";
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
       <Search />
       <SlidersOffers />
       <Categories />
+      <BestSelling />
     </WrapperHome>
   );
 }
