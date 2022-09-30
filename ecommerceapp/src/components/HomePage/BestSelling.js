@@ -15,11 +15,13 @@ function BestSelling() {
           <img src={"/images/paprika.png"} alt="" />
           <p>Bell Pepper Red</p>
           <span>1kg, 4$</span>
+          <div className="add-card">+</div>
         </div>
         <div>
           <img src={"/images/steak.png"} alt="" />
           <p>Bell Pepper Red</p>
           <span>1kg, 4$</span>
+          <div className="add-card">+</div>
         </div>
       </DisplayCards>
     </Section>
@@ -59,6 +61,7 @@ const DisplayCards = styled.div`
     background: var(--light-background);
     border-radius: 15px;
     padding: 15px;
+    position: relative;
 
     p {
       padding-top: 5px;
@@ -68,6 +71,22 @@ const DisplayCards = styled.div`
     span {
       color: var(--price);
     }
+  }
+
+  .add-card {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--background);
+    padding: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: white;
   }
 `;
 

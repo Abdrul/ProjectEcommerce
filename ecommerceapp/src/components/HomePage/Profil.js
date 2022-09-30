@@ -36,7 +36,7 @@ function Profil() {
         <span className="welcome-text">Good morning</span>
         <p>{uid?.displayName}</p>
       </div>
-      <WrapperImgs>
+      {/* <WrapperImgs>
         <div>
           <img src={"/images/profil.png"} alt="" className="profil-icon" />
         </div>
@@ -48,15 +48,13 @@ function Profil() {
             className="logout-icon"
           />
         </div>
-      </WrapperImgs>
+      </WrapperImgs> */}
     </Header>
   );
 }
 
 const Header = styled.header`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-top: 15px;
 
   .wrapper-name {
@@ -86,19 +84,19 @@ const Header = styled.header`
   }
 `;
 
-const WrapperImgs = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+// const WrapperImgs = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 15px;
 
-  .profil-icon {
-    width: 30px;
-  }
+//   .profil-icon {
+//     width: 30px;
+//   }
 
-  .logout-icon {
-    width: 26px;
-  }
-`;
+//   .logout-icon {
+//     width: 26px;
+//   }
+// `;
 
 export default Profil;
