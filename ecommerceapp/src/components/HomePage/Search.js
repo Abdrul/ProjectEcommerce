@@ -9,7 +9,7 @@ function Search() {
   );
 }
 
-const WrapperSearch = styled.div`
+const WrapperSearch = styled.section`
   margin-top: 25px;
   text-align: center;
   input {
