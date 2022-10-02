@@ -11,13 +11,13 @@ function BestSelling() {
         <span>See all</span>
       </WrappedTitle>
       <DisplayCards>
-        <div>
+        <div className="cart-products">
           <img src={"/images/paprika.png"} alt="" />
           <p>Bell Pepper Red</p>
           <span>1kg, 4$</span>
           <div className="add-card">+</div>
         </div>
-        <div>
+        <div className="cart-products">
           <img src={"/images/steak.png"} alt="" />
           <p>Bell Pepper Red</p>
           <span>1kg, 4$</span>
@@ -57,7 +57,7 @@ const DisplayCards = styled.div`
   gap: 10px;
   padding-top: 15px;
 
-  div {
+  .cart-products {
     background: var(--light-background);
     border-radius: 15px;
     padding: 15px;
