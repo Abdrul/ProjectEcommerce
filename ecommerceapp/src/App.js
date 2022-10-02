@@ -1,16 +1,15 @@
-import HomePage from './pages/Intro';
-import Registration from './pages/Registration';
-import {Routes, Route} from "react-router-dom"
-import {createGlobalStyle} from "styled-components";
-import { useState } from 'react';
-import {onAuthStateChanged} from 'firebase/auth';
-import { auth } from './utils/firebase.config';
-import Home from './pages/Home';
-import {UidContext} from './components/AppContext';
-
+import HomePage from "./pages/Intro";
+import Registration from "./pages/Registration";
+import { Routes, Route } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+import { useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./utils/firebase.config";
+import Home from "./pages/Home";
+import { UidContext } from "./components/AppContext";
+import FruitsPage from "./pages/FruitsPage";
 
 function App() {
-
   const [user, setUser] = useState(null);
 
   onAuthStateChanged(auth, (currentUser) => {
@@ -21,17 +20,16 @@ function App() {
 
   return (
     <div className="App">
-
-      <GlobalStyle/>
+      <GlobalStyle />
 
       <UidContext.Provider value={user}>
         <Routes>
-          <Route path='/' element={<HomePage/>}/>
-          <Route path='/login' element={<Registration/>}/>
-          <Route path='/home' element={<Home/>}/>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Registration />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/fruits" element={<FruitsPage />} />
         </Routes>
       </UidContext.Provider>
-
     </div>
   );
 }
@@ -57,6 +55,6 @@ body, html {
   --description: #979899;
   --title-section: #06161C;
 }
-`
+`;
 
 export default App;

@@ -44,7 +44,7 @@ function SlidersOffers() {
 }
 
 const WrapperSlider = styled.div`
-  margin-top: 15px;
+  margin-top: 20px;
   position: relative;
   width: 100%;
 

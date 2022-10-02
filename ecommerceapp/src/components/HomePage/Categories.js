@@ -13,7 +13,7 @@ function Categories() {
       </WrappedTitle>
       <WrappedSectionOfProducts>
         <ListOfProducts>
-          <Link>
+          <Link to="/fruits">
             <img src={"/images/apple.png"} alt="" />
             <p>Fruits</p>
           </Link>
@@ -36,7 +36,7 @@ function Categories() {
 }
 
 const Section = styled.section`
-  margin-top: 15px;
+  margin-top: 20px;
 `;
 
 const WrappedTitle = styled.div`

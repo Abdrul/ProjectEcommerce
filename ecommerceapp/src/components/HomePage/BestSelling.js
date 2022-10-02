@@ -29,7 +29,7 @@ function BestSelling() {
 }
 
 const Section = styled.section`
-  margin-top: 15px;
+  margin-top: 35px;
 `;
 
 const WrappedTitle = styled.div`
