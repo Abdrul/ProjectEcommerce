@@ -16,8 +16,6 @@ function App() {
     setUser(currentUser);
   });
 
-  // console.log(user);
-
   return (
     <div className="App">
       <GlobalStyle />

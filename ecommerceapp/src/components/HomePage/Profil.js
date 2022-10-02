@@ -1,33 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { UidContext } from "../../components/AppContext";
-import { signOut } from "firebase/auth";
-import { auth } from "../../utils/firebase.config";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 function Profil() {
-  const navigate = useNavigate();
   const uid = useContext(UidContext);
-  // const [dataApi, setDataApi] = useState([]);
-
-  // useEffect(() => {
-  //     const fetchGet = async () => {
-  //         const response = await axios.get("http://localhost:3000/fruits");
-  //         const data = response.data;
-  //         setDataApi(data);
-  //     };
-
-  //     fetchGet();
-  // }, []);
-
-  const handleLogout = async () => {
-    await signOut(auth);
-    navigate("/login");
-  };
-
-  // <span>👋</span>
-  // <p>{uid?.displayName}</p>
-  // <img src={'/images/logout.png'} alt="" onClick={handleLogout}/>
 
   return (
     <Header>
@@ -36,19 +12,6 @@ function Profil() {
         <span className="welcome-text">Good morning</span>
         <p>{uid?.displayName}</p>
       </div>
-      {/* <WrapperImgs>
-        <div>
-          <img src={"/images/profil.png"} alt="" className="profil-icon" />
-        </div>
-        <div>
-          <img
-            src={"/images/logout.png"}
-            alt=""
-            onClick={handleLogout}
-            className="logout-icon"
-          />
-        </div>
-      </WrapperImgs> */}
     </Header>
   );
 }

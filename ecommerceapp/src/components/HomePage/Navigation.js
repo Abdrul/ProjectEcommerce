@@ -1,26 +1,37 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../utils/firebase.config";
+import { Link } from "react-router-dom";
 
 function Navigation() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    navigate("/login");
+  };
+
   return (
     <Footer>
       <Nav>
         <ul>
-          <a href="">
+          <li>
             <Img src={"/images/home.png"} alt="" />
-          </a>
-          <a href="">
+          </li>
+          <li>
             <Img src={"/images/all.png"} alt="" />
-          </a>
-          <a href="">
+          </li>
+          <li>
             <Img src={"/images/cart.png"} alt="" />
-          </a>
-          <a href="">
+          </li>
+          <li>
             <Img src={"/images/profil.png"} alt="" />
-          </a>
-          <a href="">
-            <Img src={"/images/logout.png"} alt="" />
-          </a>
+          </li>
+          <li>
+            <Img src={"/images/logout.png"} alt="" onClick={handleLogout} />
+          </li>
         </ul>
       </Nav>
     </Footer>
@@ -39,11 +50,12 @@ const Nav = styled.nav`
   ul {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
     justify-items: center;
     align-items: flex-end;
 
-    a {
+    li {
+      list-style-type: none;
       &:nth-child(1) {
         grid-row-start: 2;
       }
@@ -57,8 +69,8 @@ const Nav = styled.nav`
           object-fit: cover;
           background: var(--background);
           border-radius: 50%;
-          padding: 5px;
-          width: 30px;
+          padding: 10px;
+          width: 40px;
         }
       }
       &:nth-child(4) {
