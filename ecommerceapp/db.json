@@ -1,27 +1,37 @@
 {
-    "fruits": [
-        { "id":1, "name": "salad", "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"},
-        { "id":2, "name": "tomato"},
-        { "id":3, "name": "courgette"},
-        { "id":4, "name": "citron"}
-    ],
-    "vegetables": [
-        {"id": 1, "name": "tomato", "imgUrl": ""},
-        {"id": 2, "name": "tomato", "imgUrl": ""},
-        {"id": 3, "name": "tomato", "imgUrl": ""},
-        {"id": 4, "name": "tomato", "imgUrl": ""},
-        {"id": 5, "name": "tomato", "imgUrl": ""},
-        {"id": 6, "name": "tomato", "imgUrl": ""}
-    ],
-    "diary": [
-        {"id": 1, "name": "tomato", "imgUrl": ""},
-        {"id": 2, "name": "tomato", "imgUrl": ""},
-        {"id": 3, "name": "tomato", "imgUrl": ""},
-        {"id": 4, "name": "tomato", "imgUrl": ""}
-    ],
-    "meat": [
-        {"id": 1, "name": "tomato", "imgUrl": ""},
-        {"id": 2, "name": "tomato", "imgUrl": ""},
-        {"id": 3, "name": "tomato", "imgUrl": ""}
-    ]
+  "fruits": [
+    {
+      "id": 1,
+      "name": "pineapple",
+      "imgUrl": "https://st.depositphotos.com/1050689/2099/i/450/depositphotos_20990611-stock-photo-pineapple-isolated.jpg",
+      "price": "1k, 6$"
+    },
+    {
+      "id": 2,
+      "name": "banana",
+      "price": 8,
+      "imgUrl": "https://st.depositphotos.com/1050689/2099/i/450/depositphotos_20990611-stock-photo-pineapple-isolated.jpg"
+    },
+    { "id": 3, "name": "passion fruit", "price": 4 },
+    { "id": 4, "name": "lemon", "price": "1k, 6$" }
+  ],
+  "vegetables": [
+    { "id": 1, "name": "tomato", "imgUrl": "" },
+    { "id": 2, "name": "tomato", "imgUrl": "" },
+    { "id": 3, "name": "tomato", "imgUrl": "" },
+    { "id": 4, "name": "tomato", "imgUrl": "" },
+    { "id": 5, "name": "tomato", "imgUrl": "" },
+    { "id": 6, "name": "tomato", "imgUrl": "" }
+  ],
+  "diary": [
+    { "id": 1, "name": "tomato", "imgUrl": "" },
+    { "id": 2, "name": "tomato", "imgUrl": "" },
+    { "id": 3, "name": "tomato", "imgUrl": "" },
+    { "id": 4, "name": "tomato", "imgUrl": "" }
+  ],
+  "meat": [
+    { "id": 1, "name": "tomato", "imgUrl": "" },
+    { "id": 2, "name": "tomato", "imgUrl": "" },
+    { "id": 3, "name": "tomato", "imgUrl": "" }
+  ]
 }
