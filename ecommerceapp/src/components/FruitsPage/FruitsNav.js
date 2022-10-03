@@ -29,26 +29,24 @@ function Fruits() {
         </Nav>
       </Header>
 
-      <main>
+      <Main>
         {dataApi.map((product) => {
           return (
-            <DisplayCards>
-              <div key={product.id} className="cart-products">
-                <img src={product.imgUrl} alt="" />
-                <p> {product.name} </p>
-                <span> {product.price} </span>
-                <div className="add-card">+</div>
-              </div>
+            <DisplayCards key={product.id}>
+              <img src={product.img} alt="" />
+              <p> {product.name} </p>
+              <span> {product.price} </span>
+              <div className="add-card">+</div>
             </DisplayCards>
           );
         })}
-      </main>
+      </Main>
     </>
   );
 }
 
 const Header = styled.header`
-  margin-top: 15px;
+  padding-top: 15px;
 `;
 
 const Nav = styled.nav`
@@ -60,27 +58,32 @@ const Nav = styled.nav`
   }
 `;
 
+const Main = styled.main`
+  padding: 25px 10px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+`;
+
 const DisplayCards = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding-top: 15px;
+  background: var(--light-background);
+  border-radius: 15px;
+  padding: 10px;
+  height: 155px;
+  position: relative;
 
-  .cart-products {
-    background: var(--light-background);
-    border-radius: 15px;
-    padding: 15px;
-    position: relative;
+  p {
+    padding-top: 5px;
+    color: var(--title-section);
+  }
 
-    p {
-      padding-top: 5px;
-      color: var(--title-section);
-    }
-
-    span {
-      color: var(--price);
-    }
+  span {
+    color: var(--price);
+  }
+  img {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
   }
 
   .add-card {

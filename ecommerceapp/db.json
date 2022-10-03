@@ -2,36 +2,58 @@
   "fruits": [
     {
       "id": 1,
-      "name": "pineapple",
-      "imgUrl": "https://st.depositphotos.com/1050689/2099/i/450/depositphotos_20990611-stock-photo-pineapple-isolated.jpg",
-      "price": "1k, 6$"
+      "name": "Pineapple",
+      "img": "/images/fruits/pineapple.png",
+      "price": "1k, 8$"
     },
     {
       "id": 2,
-      "name": "banana",
-      "price": 8,
-      "imgUrl": "https://st.depositphotos.com/1050689/2099/i/450/depositphotos_20990611-stock-photo-pineapple-isolated.jpg"
+      "name": "Banana",
+      "price": "1k, 4$",
+      "img": "/images/fruits/banana.png"
     },
-    { "id": 3, "name": "passion fruit", "price": 4 },
-    { "id": 4, "name": "lemon", "price": "1k, 6$" }
+    {
+      "id": 3,
+      "name": "Passion fruit",
+      "price": "1k, 5$",
+      "img": "/images/fruits/passionFruit.png"
+    },
+    {
+      "id": 4,
+      "name": "Lemon",
+      "price": "1k, 3$",
+      "img": "/images/fruits/lemon.png"
+    },
+    {
+      "id": 5,
+      "name": "Strawberry",
+      "price": "1k, 2$",
+      "img": "/images/fruits/strawberry.png"
+    },
+    {
+      "id": 6,
+      "name": "Grenade",
+      "price": "1k, 6$",
+      "img": "/images/fruits/grenade.png"
+    }
   ],
   "vegetables": [
-    { "id": 1, "name": "tomato", "imgUrl": "" },
-    { "id": 2, "name": "tomato", "imgUrl": "" },
-    { "id": 3, "name": "tomato", "imgUrl": "" },
-    { "id": 4, "name": "tomato", "imgUrl": "" },
-    { "id": 5, "name": "tomato", "imgUrl": "" },
-    { "id": 6, "name": "tomato", "imgUrl": "" }
+    { "id": 1, "name": "Bell Pepper Red", "img": "", "price": "1kg, 6$" },
+    { "id": 2, "name": "Arabic Ginger", "img": "", "price": "1kg, 4$" },
+    { "id": 3, "name": "Fresh Lettuce", "img": "", "price": "1kg, 2$" },
+    { "id": 4, "name": "Butternut Squash", "img": "", "price": "1kg, 8$" },
+    { "id": 5, "name": "Organic Carrots", "img": "", "price": "1kg, 4$" },
+    { "id": 6, "name": "Fresh Broccoli", "img": "", "price": "1kg, 2$" }
   ],
   "diary": [
-    { "id": 1, "name": "tomato", "imgUrl": "" },
-    { "id": 2, "name": "tomato", "imgUrl": "" },
-    { "id": 3, "name": "tomato", "imgUrl": "" },
-    { "id": 4, "name": "tomato", "imgUrl": "" }
+    { "id": 1, "name": "tomato", "img": "" },
+    { "id": 2, "name": "tomato", "img": "" },
+    { "id": 3, "name": "tomato", "img": "" },
+    { "id": 4, "name": "tomato", "img": "" }
   ],
   "meat": [
-    { "id": 1, "name": "tomato", "imgUrl": "" },
-    { "id": 2, "name": "tomato", "imgUrl": "" },
-    { "id": 3, "name": "tomato", "imgUrl": "" }
+    { "id": 1, "name": "tomato", "img": "" },
+    { "id": 2, "name": "tomato", "img": "" },
+    { "id": 3, "name": "tomato", "img": "" }
   ]
 }
