@@ -17,21 +17,21 @@ function Navigation() {
     <Footer>
       <Nav>
         <ul>
-          <li>
+          <Link>
             <Img src={"/images/home.png"} alt="" />
-          </li>
-          <li>
+          </Link>
+          <Link>
             <Img src={"/images/all.png"} alt="" />
-          </li>
-          <li>
+          </Link>
+          <Link to="/cart">
             <Img src={"/images/cart.png"} alt="" />
-          </li>
-          <li>
+          </Link>
+          <Link>
             <Img src={"/images/profil.png"} alt="" />
-          </li>
-          <li>
+          </Link>
+          <Link>
             <Img src={"/images/logout.png"} alt="" onClick={handleLogout} />
-          </li>
+          </Link>
         </ul>
       </Nav>
     </Footer>
@@ -54,8 +54,7 @@ const Nav = styled.nav`
     justify-items: center;
     align-items: flex-end;
 
-    li {
-      list-style-type: none;
+    a {
       &:nth-child(1) {
         grid-row-start: 2;
       }

@@ -8,6 +8,8 @@ import { auth } from "./utils/firebase.config";
 import Home from "./pages/Home";
 import { UidContext } from "./components/AppContext";
 import FruitsPage from "./pages/FruitsPage";
+import VegetablesPage from "./pages/VegetablesPage";
+import Cart from "./pages/Cart";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -26,6 +28,8 @@ function App() {
           <Route path="/login" element={<Registration />} />
           <Route path="/home" element={<Home />} />
           <Route path="/fruits" element={<FruitsPage />} />
+          <Route path="/vegetables" element={<VegetablesPage />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </UidContext.Provider>
     </div>

@@ -17,7 +17,7 @@ function Categories() {
             <img src={"/images/apple.png"} alt="" />
             <p>Fruits</p>
           </Link>
-          <Link>
+          <Link to="/vegetables">
             <img src={"/images/broccoli.png"} alt="" />
             <p>Vegetables</p>
           </Link>

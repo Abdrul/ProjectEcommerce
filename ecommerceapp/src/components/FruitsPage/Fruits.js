@@ -5,7 +5,6 @@ import axios from "axios";
 
 function Fruits() {
   const [dataApi, setDataApi] = useState([]);
-  console.log(dataApi);
 
   useEffect(() => {
     const fetchGet = async () => {
