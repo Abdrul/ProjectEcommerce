@@ -39,37 +39,37 @@
   ],
   "vegetables": [
     {
-      "id": 1,
+      "id": 7,
       "name": "Bell Pepper Red",
       "img": "/images/paprika.png",
       "price": "1kg, 6$"
     },
     {
-      "id": 2,
+      "id": 8,
       "name": "Arabic Ginger",
       "img": "/images/vegetables/arabicGinger.png",
       "price": "1kg, 4$"
     },
     {
-      "id": 3,
+      "id": 9,
       "name": "Fresh Lettuce",
       "img": "/images/vegetables/salad.png",
       "price": "1kg, 2$"
     },
     {
-      "id": 4,
+      "id": 10,
       "name": "Butternut Squash",
       "img": "/images/vegetables/butternutSquah.png",
       "price": "1kg, 8$"
     },
     {
-      "id": 5,
+      "id": 11,
       "name": "Organic Carrots",
       "img": "/images/vegetables/carrots.png",
       "price": "1kg, 4$"
     },
     {
-      "id": 6,
+      "id": 12,
       "name": "Fresh Broccoli",
       "img": "/images/vegetables/broccoli.png",
       "price": "1kg, 2$"

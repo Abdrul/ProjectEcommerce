@@ -35,7 +35,11 @@ function Fruits() {
               <img src={product.img} alt="" />
               <p> {product.name} </p>
               <span> {product.price} </span>
-              <div className="add-card">+</div>
+              <div className="add-card">
+                <Link to={`/fruits/${product.id}`} state={product}>
+                  +
+                </Link>
+              </div>
             </DisplayCards>
           );
         })}
@@ -99,6 +103,11 @@ const DisplayCards = styled.div`
     justify-content: center;
     font-size: 26px;
     color: white;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
   }
 `;
 
