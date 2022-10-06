@@ -7,6 +7,24 @@ function ProductDetails() {
   const { state } = useLocation();
   const item = state || [];
 
+  const [countQuantity, setCountQuantity] = useState(1);
+  // console.log(countQuantity);
+
+  const handleIncreaseQuantity = () => {
+    if (countQuantity > 99) {
+      setCountQuantity(99);
+    }
+    setCountQuantity((countQuantity) => countQuantity + 1);
+  };
+
+  const handleDecreaseQuantity = () => {
+    if (countQuantity < 1) {
+      setCountQuantity(1);
+    }
+
+    setCountQuantity((countQuantity) => countQuantity - 1);
+  };
+
   return item ? (
     <>
       <Header>
@@ -26,48 +44,67 @@ function ProductDetails() {
           <div className="wrapper-selection-quantity">
             <h3>{item.name}</h3>
             <form>
-              <div className="value-button decrease">-</div>
-              <input type="number" defaultValue={0} id="number" />
-              <div className="value-button increase">+</div>
+              <div
+                onClick={handleDecreaseQuantity}
+                className="value-button decrease"
+              >
+                -
+              </div>
+              {/* <input type="number" id="number" /> */}
+              <span>{countQuantity}</span>
+              <div
+                onClick={handleIncreaseQuantity}
+                className="value-button increase"
+              >
+                +
+              </div>
             </form>
           </div>
           <div className="price-description-product">
             <p>{item.price}</p>
             <p>
-              Ginger is a flowering plant whose rhizome, ginger root or ginger,
-              is widely used as a spice and a folk medicine.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est qui
+              dolores minus sapiente ab praesentium quia fugiat quasi
             </p>
           </div>
         </section>
         <section className="third-section">
           <div className="wrapper-details-product">
-            <div>
+            <div className="wrapper">
               <img src={"/images/organic.png"} alt="" />
-              <span>100%</span>
-              <span>Organic</span>
+              <div className="card-content">
+                <span>100%</span>
+                <span>Organic</span>
+              </div>
             </div>
-            <div>
+            <div className="wrapper">
               <img src={"/images/expiration.png"} alt="" />
-              <span>1 Year</span>
-              <span>Expiration</span>
+              <div className="card-content">
+                <span>Expiration</span>
+                <span>1 Year</span>
+              </div>
             </div>
-            <div>
+            <div className="wrapper">
               <img src={"/images/reviews.png"} alt="" />
-              <span>4.8</span>
-              <span>Reviews</span>
+              <div className="card-content">
+                <span>Reviews</span>
+                <span>4.8</span>
+              </div>
             </div>
-            <div>
+            <div className="wrapper">
               <img src={"/images/gram.png"} alt="" />
-              <span>80 kcal</span>
-              <span>100 Gram</span>
+              <div className="card-content">
+                <span>100 Gram</span>
+                <span>80 kcal</span>
+              </div>
             </div>
           </div>
         </section>
       </Main>
 
-      <footer>
+      <Footer>
         <button>Add to cart</button>
-      </footer>
+      </Footer>
     </>
   ) : (
     "salut"
@@ -140,7 +177,12 @@ const Main = styled.main`
         color: white;
       }
 
-      input#number {
+      span {
+        width: 40px;
+        text-align: center;
+      }
+
+      /* input#number {
         text-align: center;
         border: none;
         margin: 0;
@@ -148,7 +190,7 @@ const Main = styled.main`
         height: 20px;
         outline: none;
         font-family: "DM Sans", sans-serif;
-      }
+      } */
     }
 
     .price-description-product {
@@ -175,7 +217,52 @@ const Main = styled.main`
     .wrapper-details-product {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-gap: 16px;
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border: 1.5px solid var(--light-background);
+        border-radius: 10px;
+        padding: 5px 0 5px 5px;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+
+        .card-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          span {
+            &:nth-child(1) {
+              color: #23aa49;
+            }
+            &:nth-child(2) {
+              color: var(--description);
+            }
+          }
+        }
+      }
     }
+  }
+`;
+
+const Footer = styled.footer`
+  padding: 25px 15px 0;
+
+  button {
+    width: 100%;
+    background: var(--background);
+    border: none;
+    font-family: "DM Sans", sans-serif;
+    border-radius: 50px;
+    padding: 15px 0;
+    color: white;
+    font-size: 18px;
   }
 `;
 
