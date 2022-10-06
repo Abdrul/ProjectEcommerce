@@ -25,6 +25,23 @@ function ProductDetails() {
     setCountQuantity((countQuantity) => countQuantity - 1);
   };
 
+  const handleAddToCart = () => {
+    const product = {
+      quantity: countQuantity,
+      id: item.id,
+    };
+
+    const basket = JSON.parse(localStorage.getItem("cart")) || [];
+    const index = basket.findIndex((el) => el.id === product.id);
+
+    if (index === -1) {
+      basket.push(product);
+    } else {
+      basket[index].quantity += product.quantity;
+    }
+    localStorage.setItem("cart", JSON.stringify(basket));
+  };
+
   return item ? (
     <>
       <Header>
@@ -103,7 +120,7 @@ function ProductDetails() {
       </Main>
 
       <Footer>
-        <button>Add to cart</button>
+        <button onClick={handleAddToCart}>Add to cart</button>
       </Footer>
     </>
   ) : (

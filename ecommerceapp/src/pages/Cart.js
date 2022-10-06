@@ -5,13 +5,22 @@ import axios from "axios";
 
 function Cart() {
   const [dataApi, setDataApi] = useState([]);
-  const local = JSON.parse(localStorage.getItem("id"));
-  console.log(local);
+  const [localSto, setLocalSto] = useState([]);
+  const [quantity, setQuantity] = useState([]);
+  console.log(localSto);
 
   useEffect(() => {
     const fetchGet = async () => {
       const response = await axios.get("http://localhost:3000/fruits");
       const data = response.data;
+      const basket = JSON.parse(localStorage.getItem("cart")) || [];
+      basket.forEach((product) => {
+        let match = Object.values(data).find(
+          (element) => element.id === product.id
+        );
+        setLocalSto((previousArr) => [...previousArr, match]);
+        setQuantity((previousArr) => [...previousArr, product]);
+      });
       setDataApi(data);
     };
 
@@ -20,18 +29,15 @@ function Cart() {
 
   return (
     <div>
-      {dataApi.map((product) => {
-        console.log(product.id, local);
-        if (product.id === local) {
-          return (
-            <DisplayCards key={product.id}>
-              <img src={product.img} alt="" />
-              <p> {product.name} </p>
-              <span> {product.price} </span>
-              <div className="add-card">+</div>
-            </DisplayCards>
-          );
-        }
+      {localSto.map((product) => {
+        return (
+          <DisplayCards key={product.id}>
+            <img src={product.img} alt="" />
+            <p> {product.name} </p>
+            <span> {product.price} </span>
+            <div className="add-card">+</div>
+          </DisplayCards>
+        );
       })}
     </div>
   );
