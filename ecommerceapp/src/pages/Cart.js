@@ -6,29 +6,42 @@ import axios from "axios";
 function Cart() {
   const [dataApi, setDataApi] = useState([]);
   const [localSto, setLocalSto] = useState([]);
-  const [quantity, setQuantity] = useState([]);
-  console.log(localSto);
 
   useEffect(() => {
     const fetchGet = async () => {
       const response = await axios.get("http://localhost:3000/fruits");
       const data = response.data;
-      const basket = JSON.parse(localStorage.getItem("cart")) || [];
-      basket.forEach((product) => {
-        let match = Object.values(data).find(
-          (element) => element.id === product.id
-        );
-        setLocalSto((previousArr) => [...previousArr, match]);
-        setQuantity((previousArr) => [...previousArr, product]);
-      });
       setDataApi(data);
     };
 
     fetchGet();
   }, []);
 
+  useEffect(() => {
+    const fetchLocalStorage = () => {
+      const basketData = JSON.parse(localStorage.getItem("cart")) || [];
+      const basketProducts = basketData.reduce((acc, bp) => {
+        const item = dataApi.find((p) => p.id === bp.id);
+        if (!item) return acc;
+        return [...acc, { ...item, ...bp }];
+      }, []);
+      setLocalSto(basketProducts);
+    };
+    fetchLocalStorage();
+  }, [dataApi]);
+
   return (
-    <div>
+    <>
+      <Header>
+        <Nav>
+          <Link to="/home">
+            <img src={"/images/arrowBack.png"} alt="retour en arriere" />
+          </Link>
+          <h3>Cart</h3>
+          <img src={"/images/search.png"} alt="recherche" />
+        </Nav>
+      </Header>
+
       {localSto.map((product) => {
         return (
           <DisplayCards key={product.id}>
@@ -39,9 +52,22 @@ function Cart() {
           </DisplayCards>
         );
       })}
-    </div>
+    </>
   );
 }
+
+const Header = styled.header`
+  padding-top: 15px;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  a {
+    display: inline-flex;
+  }
+`;
 
 const DisplayCards = styled.div`
   background: var(--light-background);
