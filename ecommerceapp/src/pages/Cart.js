@@ -6,6 +6,46 @@ import axios from "axios";
 function Cart() {
   const [dataApi, setDataApi] = useState([]);
   const [localSto, setLocalSto] = useState([]);
+  console.log(localSto);
+  const [countQuantity, setCountQuantity] = useState();
+
+  const handleIncreaseQuantity = () => {};
+
+  const handleDecreaseQuantity = (quantity, id) => {
+    // setLocalSto((localSto) =>
+    //   localSto.map((item) =>
+    //     item.id === id
+    //       ? {
+    //           ...item,
+    //           quantity: item.quantity - 1,
+    //         }
+    //       : item
+    //   )
+    // );
+    // localStorage.setItem("cart", JSON.stringify(localSto));
+
+    const news = localSto.map((i) =>
+      i.id === id
+        ? {
+            ...i,
+            quantity: i.quantity - 1,
+          }
+        : i
+    );
+    localStorage.setItem("cart", JSON.stringify(news));
+    setLocalSto(news);
+  };
+
+  // useEffect(() => {
+  //   const cartState = JSON.parse(localStorage.getItem("cart"));
+  //   if (cartState) {
+  //     setLocalSto(cartState);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem("cart", JSON.stringify(localSto));
+  // }, [localSto]);
 
   useEffect(() => {
     const fetchGet = async () => {
@@ -38,20 +78,43 @@ function Cart() {
             <img src={"/images/arrowBack.png"} alt="retour en arriere" />
           </Link>
           <h3>Cart</h3>
-          <img src={"/images/search.png"} alt="recherche" />
         </Nav>
       </Header>
-
-      {localSto.map((product) => {
-        return (
-          <DisplayCards key={product.id}>
-            <img src={product.img} alt="" />
-            <p> {product.name} </p>
-            <span> {product.price} </span>
-            <div className="add-card">+</div>
-          </DisplayCards>
-        );
-      })}
+      <Section>
+        {localSto.map((product) => {
+          return (
+            <DisplayCards key={product.id}>
+              <img src={product.img} alt="" />
+              <div className="card-content">
+                <p> {product.name} </p>
+                <span> {product.price} </span>
+              </div>
+              <form>
+                <div
+                  onClick={() =>
+                    handleDecreaseQuantity(product.quantity, product.id)
+                  }
+                  className="value-button decrease"
+                >
+                  -
+                </div>
+                {/* <input
+                  type="number"
+                  id="number"
+                  value={product.quantity}
+                /> */}
+                <span>{product.quantity}</span>
+                <div
+                  onClick={handleIncreaseQuantity}
+                  className="value-button increase"
+                >
+                  +
+                </div>
+              </form>
+            </DisplayCards>
+          );
+        })}
+      </Section>
     </>
   );
 }
@@ -62,48 +125,71 @@ const Header = styled.header`
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-around;
+  gap: 70px;
   align-items: center;
   a {
+    padding-left: 25px;
     display: inline-flex;
   }
 `;
 
+const Section = styled.section`
+  padding-top: 25px;
+`;
+
 const DisplayCards = styled.div`
-  background: var(--light-background);
-  border-radius: 15px;
-  padding: 10px;
-  height: 155px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1.5px solid var(--light-background);
+  padding: 10px 5px;
+  gap: 15px;
 
-  p {
-    padding-top: 5px;
-    color: var(--title-section);
+  .card-content {
+    width: 100%;
+    p {
+      padding-top: 5px;
+      color: var(--title-section);
+    }
+    span {
+      color: var(--price);
+    }
   }
 
-  span {
-    color: var(--price);
-  }
   img {
     object-fit: cover;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
   }
 
-  .add-card {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: var(--background);
-    padding: 0;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
+  form {
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 26px;
-    color: white;
+    align-items: center;
+
+    .value-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    .decrease {
+      background: var(--light-background);
+      color: #979899;
+    }
+
+    .increase {
+      background: var(--background);
+      color: white;
+    }
+
+    span {
+      width: 40px;
+      text-align: center;
+    }
   }
 `;
 
