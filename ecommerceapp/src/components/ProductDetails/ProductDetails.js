@@ -46,7 +46,7 @@ function ProductDetails() {
     <>
       <Header>
         <Nav>
-          <Link to="/fruits">
+          <Link to="/home">
             <img src={"/images/arrowBack.png"} alt="" />
           </Link>
           <img src={"/images/search.png"} alt="" />

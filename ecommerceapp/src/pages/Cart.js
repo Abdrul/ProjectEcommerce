@@ -6,7 +6,6 @@ import axios from "axios";
 function Cart() {
   const [dataApi, setDataApi] = useState([]);
   const [localSto, setLocalSto] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleIncreaseQuantity = (id) => {
     const increaseQuantity = localSto.map((item) =>
@@ -55,9 +54,14 @@ function Cart() {
 
   useEffect(() => {
     const fetchGet = async () => {
-      const response = await axios.get("http://localhost:3000/fruits");
-      const data = response.data;
-      setDataApi(data);
+      const responseFruits = await axios.get("http://localhost:3000/fruits");
+      const responseVegetables = await axios.get(
+        "http://localhost:3000/vegetables"
+      );
+      const dataFruits = responseFruits.data;
+      const dataVegetables = responseVegetables.data;
+      const concatAllProducts = dataFruits.concat(dataVegetables);
+      setDataApi(concatAllProducts);
     };
 
     fetchGet();
@@ -120,7 +124,7 @@ function Cart() {
               {localSto.reduce(
                 (previousValue, currentValue) =>
                   previousValue + currentValue.price * currentValue.quantity,
-                totalPrice
+                0
               )}
               $
             </span>
