@@ -34,15 +34,6 @@ function Cart() {
     deletePoduct(id);
   };
 
-  // useEffect(() => {
-  //   const calculTotalPrice = localSto.reduce(
-  //     (previousValue, currentValue) =>
-  //       previousValue + currentValue.price * currentValue.quantity,
-  //     totalPrice
-  //   );
-  //   setTotalPrice(calculTotalPrice);
-  // }, [localSto]);
-
   const deletePoduct = (id) => {
     const findProduct = localSto.find((p) => p.id === id);
     if (findProduct.quantity < 2) {
@@ -53,18 +44,34 @@ function Cart() {
   };
 
   useEffect(() => {
-    const fetchGet = async () => {
-      const responseFruits = await axios.get("http://localhost:3000/fruits");
-      const responseVegetables = await axios.get(
-        "http://localhost:3000/vegetables"
-      );
-      const dataFruits = responseFruits.data;
-      const dataVegetables = responseVegetables.data;
-      const concatAllProducts = dataFruits.concat(dataVegetables);
-      setDataApi(concatAllProducts);
+    const fetchNames = async () => {
+      try {
+        const res = await Promise.all([
+          axios.get("http://localhost:3000/fruits"),
+          axios.get("http://localhost:3000/vegetables"),
+        ]);
+        // console.log(res);
+        const data = res.map((res) => res.data);
+        // console.log(data);
+        const concat = data.flat();
+        setDataApi(concat);
+      } catch {
+        throw Error("Promise failed");
+      }
     };
+    fetchNames();
+    // const fetchGet = async () => {
+    //   const responseFruits = await axios.get("http://localhost:3000/fruits");
+    //   const responseVegetables = await axios.get(
+    //     "http://localhost:3000/vegetables"
+    //   );
+    //   const dataFruits = responseFruits.data;
+    //   const dataVegetables = responseVegetables.data;
+    //   const concatAllProducts = dataFruits.concat(dataVegetables);
+    //   setDataApi(concatAllProducts);
+    // };
 
-    fetchGet();
+    // fetchGet();
   }, []);
 
   useEffect(() => {
