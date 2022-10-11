@@ -34,7 +34,7 @@ function Fruits() {
             <DisplayCards key={product.id}>
               <img src={product.img} alt="" />
               <p> {product.name} </p>
-              <span> {product.price} </span>
+              <span> 1k, {product.price}$ </span>
               <div className="add-card">
                 <Link to={`/fruits/${product.id}`} state={product}>
                   +

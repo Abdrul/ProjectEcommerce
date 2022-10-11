@@ -4,36 +4,36 @@
       "id": 1,
       "name": "Pineapple",
       "img": "/images/fruits/pineapple.png",
-      "price": "1k, 8$"
+      "price": 8
     },
     {
       "id": 2,
       "name": "Banana",
-      "price": "1k, 4$",
+      "price": 4,
       "img": "/images/fruits/banana.png"
     },
     {
       "id": 3,
       "name": "Passion fruit",
-      "price": "1k, 5$",
+      "price": 5,
       "img": "/images/fruits/passionFruit.png"
     },
     {
       "id": 4,
       "name": "Lemon",
-      "price": "1k, 3$",
+      "price": 3,
       "img": "/images/fruits/lemon.png"
     },
     {
       "id": 5,
       "name": "Strawberry",
-      "price": "1k, 2$",
+      "price": 2,
       "img": "/images/fruits/strawberry.png"
     },
     {
       "id": 6,
       "name": "Grenade",
-      "price": "1k, 6$",
+      "price": 6,
       "img": "/images/fruits/grenade.png"
     }
   ],
@@ -42,37 +42,37 @@
       "id": 7,
       "name": "Bell Pepper Red",
       "img": "/images/paprika.png",
-      "price": "1kg, 6$"
+      "price": 6
     },
     {
       "id": 8,
       "name": "Arabic Ginger",
       "img": "/images/vegetables/arabicGinger.png",
-      "price": "1kg, 4$"
+      "price": 4
     },
     {
       "id": 9,
       "name": "Fresh Lettuce",
       "img": "/images/vegetables/salad.png",
-      "price": "1kg, 2$"
+      "price": 2
     },
     {
       "id": 10,
       "name": "Butternut Squash",
       "img": "/images/vegetables/butternutSquah.png",
-      "price": "1kg, 8$"
+      "price": 8
     },
     {
       "id": 11,
       "name": "Organic Carrots",
       "img": "/images/vegetables/carrots.png",
-      "price": "1kg, 4$"
+      "price": 4
     },
     {
       "id": 12,
       "name": "Fresh Broccoli",
       "img": "/images/vegetables/broccoli.png",
-      "price": "1kg, 2$"
+      "price": 2
     }
   ],
   "diary": [

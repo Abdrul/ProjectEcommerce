@@ -34,7 +34,7 @@ function Vegetables() {
             <DisplayCards key={product.id}>
               <img src={product.img} alt="" />
               <p> {product.name} </p>
-              <span> {product.price} </span>
+              <span> 1k, {product.price}$</span>
               <div className="add-card">+</div>
             </DisplayCards>
           );

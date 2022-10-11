@@ -67,7 +67,6 @@ function ProductDetails() {
               >
                 -
               </div>
-              {/* <input type="number" id="number" /> */}
               <span>{countQuantity}</span>
               <div
                 onClick={handleIncreaseQuantity}
@@ -78,7 +77,7 @@ function ProductDetails() {
             </form>
           </div>
           <div className="price-description-product">
-            <p>{item.price}</p>
+            <p>1k, {item.price}$</p>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est qui
               dolores minus sapiente ab praesentium quia fugiat quasi
@@ -198,16 +197,6 @@ const Main = styled.main`
         width: 40px;
         text-align: center;
       }
-
-      /* input#number {
-        text-align: center;
-        border: none;
-        margin: 0;
-        width: 50px;
-        height: 20px;
-        outline: none;
-        font-family: "DM Sans", sans-serif;
-      } */
     }
 
     .price-description-product {
