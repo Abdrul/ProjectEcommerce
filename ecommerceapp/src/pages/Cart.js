@@ -35,14 +35,14 @@ function Cart() {
     deletePoduct(id);
   };
 
-  useEffect(() => {
-    const calculTotalPrice = localSto.reduce(
-      (previousValue, currentValue) =>
-        previousValue + currentValue.price * currentValue.quantity,
-      totalPrice
-    );
-    setTotalPrice(calculTotalPrice);
-  }, [localSto]);
+  // useEffect(() => {
+  //   const calculTotalPrice = localSto.reduce(
+  //     (previousValue, currentValue) =>
+  //       previousValue + currentValue.price * currentValue.quantity,
+  //     totalPrice
+  //   );
+  //   setTotalPrice(calculTotalPrice);
+  // }, [localSto]);
 
   const deletePoduct = (id) => {
     const findProduct = localSto.find((p) => p.id === id);
@@ -113,10 +113,18 @@ function Cart() {
             </DisplayCards>
           );
         })}
-      </Section>
-      <Section>
-        <div>
-          <span> {totalPrice} </span>
+        <div className="wrapper-total-price">
+          <p>
+            Total :{" "}
+            <span>
+              {localSto.reduce(
+                (previousValue, currentValue) =>
+                  previousValue + currentValue.price * currentValue.quantity,
+                totalPrice
+              )}
+              $
+            </span>
+          </p>
         </div>
       </Section>
       <Footer>
@@ -141,8 +149,18 @@ const Nav = styled.nav`
 `;
 
 const Section = styled.section`
-  /* height: 85vh; */
+  height: 85vh;
   padding-top: 25px;
+
+  .wrapper-total-price {
+    padding-top: 25px;
+    text-align: center;
+    p {
+      span {
+        color: var(--price);
+      }
+    }
+  }
 `;
 
 const DisplayCards = styled.div`
