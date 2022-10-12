@@ -18,7 +18,8 @@ function Profil() {
 
 const Header = styled.header`
   display: flex;
-  margin-top: 15px;
+  padding: 10px 15px;
+  background: var(--light-background);
 
   .wrapper-name {
     display: grid;

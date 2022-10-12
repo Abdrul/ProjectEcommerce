@@ -9,19 +9,21 @@ import Navigation from "../components/HomePage/Navigation";
 
 function Home() {
   return (
-    <WrapperHome>
+    <>
       <Profil />
       <Search />
-      <SlidersOffers />
-      <Categories />
-      <BestSelling />
-      <Navigation />
-    </WrapperHome>
+      <WrapperHome>
+        <SlidersOffers />
+        <Categories />
+        <BestSelling />
+        <Navigation />
+      </WrapperHome>
+    </>
   );
 }
 
 const WrapperHome = styled.main`
-  padding: 10px 15px;
+  padding: 0 15px;
 `;
 
 export default Home;

@@ -10,7 +10,9 @@ function Search() {
 }
 
 const WrapperSearch = styled.section`
-  margin-top: 25px;
+  padding: 10px 15px 30px;
+  background: var(--light-background);
+  border-radius: 0% 0% 50% 50% / 0% 0% 15% 15%;
   text-align: center;
   input {
     font-family: "DM Sans", sans-serif;
