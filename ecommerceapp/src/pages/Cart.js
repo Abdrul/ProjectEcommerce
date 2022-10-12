@@ -50,9 +50,7 @@ function Cart() {
           axios.get("http://localhost:3000/fruits"),
           axios.get("http://localhost:3000/vegetables"),
         ]);
-        // console.log(res);
         const data = res.map((res) => res.data);
-        // console.log(data);
         const concat = data.flat();
         setDataApi(concat);
       } catch {

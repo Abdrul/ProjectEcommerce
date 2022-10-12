@@ -11,6 +11,7 @@ import FruitsPage from "./pages/FruitsPage";
 import VegetablesPage from "./pages/VegetablesPage";
 import Cart from "./pages/Cart";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
+import AllProductsPage from "./pages/AllProductsPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Registration />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/allProducts" element={<AllProductsPage />} />
           <Route path="/fruits" element={<FruitsPage />} />
           <Route path="/vegetables" element={<VegetablesPage />} />
           <Route path="/fruits/:id" element={<ProductDetails />} />

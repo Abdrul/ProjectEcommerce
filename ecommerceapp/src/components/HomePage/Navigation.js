@@ -20,7 +20,7 @@ function Navigation() {
           <Link>
             <Img src={"/images/home.png"} alt="" />
           </Link>
-          <Link>
+          <Link to="/allProducts">
             <Img src={"/images/all.png"} alt="" />
           </Link>
           <Link to="/cart">
