@@ -8,6 +8,7 @@ function ProductDetails() {
   const item = state || [];
 
   const [countQuantity, setCountQuantity] = useState(1);
+  const [toggleAddToCart, setToggleAddToCart] = useState(false);
   // console.log(countQuantity);
 
   const handleIncreaseQuantity = () => {
@@ -26,6 +27,7 @@ function ProductDetails() {
   };
 
   const handleAddToCart = () => {
+    setToggleAddToCart(!false);
     const product = {
       quantity: countQuantity,
       id: item.id,
@@ -119,7 +121,15 @@ function ProductDetails() {
       </Main>
 
       <Footer>
-        <span className="msg-product-add">The product is added</span>
+        <div>
+          <span
+            className={
+              toggleAddToCart ? "msg-product-add animated" : "msg-product-add"
+            }
+          >
+            The product is added
+          </span>
+        </div>
         <button onClick={handleAddToCart}>Add to cart</button>
       </Footer>
     </>
@@ -260,6 +270,27 @@ const Main = styled.main`
 
 const Footer = styled.footer`
   padding: 25px 15px 0;
+  div {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+
+    .msg-product-add {
+      background: var(--light-background);
+      border-radius: 15px;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: var(--title);
+      opacity: 0;
+      transform: scale(0);
+      transition: all ease-in-out 0.3s;
+    }
+
+    .animated {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 
   button {
     width: 100%;

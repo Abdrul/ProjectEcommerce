@@ -7,8 +7,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./utils/firebase.config";
 import Home from "./pages/Home";
 import { UidContext } from "./components/AppContext";
-import FruitsPage from "./pages/FruitsPage";
-import VegetablesPage from "./pages/VegetablesPage";
 import Cart from "./pages/Cart";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import AllProductsPage from "./pages/AllProductsPage";
