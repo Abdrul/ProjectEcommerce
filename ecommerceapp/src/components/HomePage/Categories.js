@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Categories() {
+  const [dataApi, setDataApi] = useState([]);
+  const [dataApi2, setDataApi2] = useState([]);
+
+  useEffect(() => {
+    const fetchGet = async () => {
+      const response = await axios.get("http://localhost:3000/fruits");
+      const response2 = await axios.get("http://localhost:3000/vegetables");
+      const data = response.data;
+      const data2 = response2.data;
+      setDataApi(data);
+      setDataApi2(data2);
+    };
+
+    fetchGet();
+  }, []);
   return (
     <Section>
       <WrappedTitle>
@@ -13,11 +29,11 @@ function Categories() {
       </WrappedTitle>
       <WrappedSectionOfProducts>
         <ListOfProducts>
-          <Link to="/fruits">
+          <Link to="/fruits" state={dataApi}>
             <img src={"/images/apple.png"} alt="" />
             <p>Fruits</p>
           </Link>
-          <Link to="/vegetables">
+          <Link to="/vegetables" state={dataApi2}>
             <img src={"/images/broccoli.png"} alt="" />
             <p>Vegetables</p>
           </Link>

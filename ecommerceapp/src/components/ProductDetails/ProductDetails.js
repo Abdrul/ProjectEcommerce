@@ -119,6 +119,7 @@ function ProductDetails() {
       </Main>
 
       <Footer>
+        <span className="msg-product-add">The product is added</span>
         <button onClick={handleAddToCart}>Add to cart</button>
       </Footer>
     </>

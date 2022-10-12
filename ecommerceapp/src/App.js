@@ -12,6 +12,7 @@ import VegetablesPage from "./pages/VegetablesPage";
 import Cart from "./pages/Cart";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import AllProductsPage from "./pages/AllProductsPage";
+import PagesCategories from "./components/PagesCategories";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -30,8 +31,7 @@ function App() {
           <Route path="/login" element={<Registration />} />
           <Route path="/home" element={<Home />} />
           <Route path="/allProducts" element={<AllProductsPage />} />
-          <Route path="/fruits" element={<FruitsPage />} />
-          <Route path="/vegetables" element={<VegetablesPage />} />
+          <Route path="/:categorie" element={<PagesCategories />} />
           <Route path="/fruits/:id" element={<ProductDetails />} />
           <Route path="/vegetables/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
