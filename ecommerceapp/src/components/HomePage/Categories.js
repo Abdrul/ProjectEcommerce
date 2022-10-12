@@ -4,20 +4,24 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Categories() {
-  const [dataApi, setDataApi] = useState([]);
-  const [dataApi2, setDataApi2] = useState([]);
+  const [dataFruits, setDataFruits] = useState([]);
+  const [dataVegetables, setDataVegetables] = useState([]);
 
   useEffect(() => {
-    const fetchGet = async () => {
-      const response = await axios.get("http://localhost:3000/fruits");
-      const response2 = await axios.get("http://localhost:3000/vegetables");
-      const data = response.data;
-      const data2 = response2.data;
-      setDataApi(data);
-      setDataApi2(data2);
+    const fetchNames = async () => {
+      try {
+        const res = await Promise.all([
+          axios.get("http://localhost:3000/fruits"),
+          axios.get("http://localhost:3000/vegetables"),
+        ]);
+        const data = res.map((res) => res.data);
+        setDataFruits(data[0]);
+        setDataVegetables(data[1]);
+      } catch {
+        throw Error("Promise failed");
+      }
     };
-
-    fetchGet();
+    fetchNames();
   }, []);
   return (
     <Section>
@@ -29,11 +33,11 @@ function Categories() {
       </WrappedTitle>
       <WrappedSectionOfProducts>
         <ListOfProducts>
-          <Link to="/fruits" state={dataApi}>
+          <Link to="/fruits" state={dataFruits}>
             <img src={"/images/apple.png"} alt="" />
             <p>Fruits</p>
           </Link>
-          <Link to="/vegetables" state={dataApi2}>
+          <Link to="/vegetables" state={dataVegetables}>
             <img src={"/images/broccoli.png"} alt="" />
             <p>Vegetables</p>
           </Link>

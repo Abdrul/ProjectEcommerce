@@ -28,6 +28,11 @@ function ProductDetails() {
 
   const handleAddToCart = () => {
     setToggleAddToCart(!false);
+
+    setTimeout(() => {
+      setToggleAddToCart(false);
+    }, "2000");
+
     const product = {
       quantity: countQuantity,
       id: item.id,
