@@ -58,18 +58,6 @@ function Cart() {
       }
     };
     fetchNames();
-    // const fetchGet = async () => {
-    //   const responseFruits = await axios.get("http://localhost:3000/fruits");
-    //   const responseVegetables = await axios.get(
-    //     "http://localhost:3000/vegetables"
-    //   );
-    //   const dataFruits = responseFruits.data;
-    //   const dataVegetables = responseVegetables.data;
-    //   const concatAllProducts = dataFruits.concat(dataVegetables);
-    //   setDataApi(concatAllProducts);
-    // };
-
-    // fetchGet();
   }, []);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
@@ -7,11 +7,17 @@ import { Link } from "react-router-dom";
 
 function Navigation() {
   const navigate = useNavigate();
+  const [countProductsCart, setCountProductsCart] = useState(0);
 
   const handleLogout = async () => {
     await signOut(auth);
     navigate("/login");
   };
+
+  useEffect(() => {
+    const basketData = JSON.parse(localStorage.getItem("cart")) || [];
+    setCountProductsCart(basketData.length);
+  }, []);
 
   return (
     <Footer>
@@ -23,8 +29,9 @@ function Navigation() {
           <Link to="/allProducts">
             <Img src={"/images/all.png"} alt="" />
           </Link>
-          <Link to="/cart">
+          <Link to="/cart" className="cart">
             <Img src={"/images/cart.png"} alt="" />
+            <span> {countProductsCart} </span>
           </Link>
           <Link>
             <Img src={"/images/profil.png"} alt="" />
@@ -55,6 +62,7 @@ const Nav = styled.nav`
     align-items: flex-end;
 
     a {
+      text-decoration: none;
       &:nth-child(1) {
         grid-row-start: 2;
       }
@@ -64,12 +72,26 @@ const Nav = styled.nav`
       &:nth-child(3) {
         grid-row-start: 1;
         grid-column-start: 3;
+        position: relative;
+
         img {
           object-fit: cover;
           background: var(--background);
           border-radius: 50%;
           padding: 10px;
           width: 40px;
+        }
+
+        span {
+          background: var(--price);
+          color: white;
+          border-radius: 10px;
+          font-size: 14px;
+          padding: 1px 5px;
+          position: absolute;
+          bottom: -5px;
+          left: 50%;
+          transform: translateX(-50%);
         }
       }
       &:nth-child(4) {
