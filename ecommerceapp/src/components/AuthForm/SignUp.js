@@ -93,7 +93,8 @@ const Form = styled.form`
 
   button {
     margin-top: 20px;
-    border-radius: 20% 12% 15%;
+    border-radius: 50px;
+    width: 100%;
     padding: 15px 50px;
     background: var(--background);
     color: #fff;
@@ -123,13 +124,19 @@ const WrapperInput = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+
+  label {
+    padding-left: 10px;
+  }
 
   input {
-    padding-top: 16px;
+    padding: 15px;
     width: 100%;
     outline: none;
     border: none;
-    border-bottom: 1px solid #000;
+    border-radius: 50px;
+    background: var(--light-background);
     font-size: 16px;
     font-family: "DM Sans", sans-serif;
   }

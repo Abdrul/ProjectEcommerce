@@ -43,12 +43,12 @@ function PagesCategories() {
 }
 
 const Header = styled.header`
-  padding-top: 15px;
+  padding: 15px 15px 0;
 `;
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   a {
     display: inline-flex;
@@ -56,7 +56,7 @@ const Nav = styled.nav`
 `;
 
 const Main = styled.main`
-  padding: 25px 10px 0;
+  padding: 25px 15px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
@@ -79,6 +79,8 @@ const DisplayCards = styled.div`
   }
   img {
     object-fit: cover;
+    display: block;
+    margin: 0 auto;
     width: 80px;
     height: 80px;
   }
@@ -88,7 +90,7 @@ const DisplayCards = styled.div`
     bottom: 10px;
     right: 10px;
     background: var(--background);
-    padding: 0;
+    padding-bottom: 2px;
     width: 35px;
     height: 35px;
     border-radius: 50%;

@@ -140,14 +140,14 @@ const Nav = styled.nav`
   gap: 70px;
   align-items: center;
   a {
-    padding-left: 25px;
+    padding-left: 15px;
     display: inline-flex;
   }
 `;
 
 const Section = styled.section`
   height: 85vh;
-  padding-top: 25px;
+  padding: 25px 15px 0;
 
   .wrapper-total-price {
     padding-top: 25px;
@@ -164,7 +164,7 @@ const DisplayCards = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1.5px solid var(--light-background);
-  padding: 10px 5px;
+  padding: 10px 0px;
   gap: 15px;
 
   .card-content {
