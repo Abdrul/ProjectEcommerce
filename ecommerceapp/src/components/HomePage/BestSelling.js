@@ -73,6 +73,10 @@ const DisplayCards = styled.div`
     }
   }
 
+  #dark .cart-products {
+    background: #1a3848;
+  }
+
   .add-card {
     position: absolute;
     bottom: 10px;

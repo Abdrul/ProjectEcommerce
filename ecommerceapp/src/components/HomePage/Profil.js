@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 function Profil() {
   const uid = useContext(UidContext);
+  console.log(uid);
 
   return (
     <Header>

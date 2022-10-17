@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Login from "../components/AuthForm/Login";
 import SignUp from "../components/AuthForm/SignUp";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
-function Registration() {
+function Registration({ onToggle2 }) {
   const [login, setLogin] = useState(true);
+
+  console.log(onToggle2);
+  const test = () => {};
 
   return (
     <Main>
@@ -22,6 +25,8 @@ function Registration() {
       </WrapperButton>
 
       {login ? <Login /> : <SignUp />}
+
+      <button onClick={onToggle2}>changer</button>
     </Main>
   );
 }
@@ -45,6 +50,7 @@ const WrapperButton = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
+  background: ${(props) => props.theme.main};
 `;
 
 const Button = styled.button`
