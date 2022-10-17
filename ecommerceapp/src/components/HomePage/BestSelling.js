@@ -38,7 +38,7 @@ const WrappedTitle = styled.div`
   justify-content: space-between;
 
   h3 {
-    color: var(--title-section);
+    color: ${(props) => props.theme.titleProduct};
 
     span {
       padding-left: 5px;
@@ -58,14 +58,14 @@ const DisplayCards = styled.div`
   padding-top: 15px;
 
   .cart-products {
-    background: var(--light-background);
+    background: ${(props) => props.theme.backgroundCard};
     border-radius: 15px;
     padding: 15px;
     position: relative;
 
     p {
       padding-top: 5px;
-      color: var(--title-section);
+      color: ${(props) => props.theme.titleProduct};
     }
 
     span {

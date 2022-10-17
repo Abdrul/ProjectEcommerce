@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 function Profil() {
   const uid = useContext(UidContext);
-  console.log(uid);
 
   return (
     <Header>
@@ -20,7 +19,7 @@ function Profil() {
 const Header = styled.header`
   display: flex;
   padding: 10px 15px;
-  background: var(--light-background);
+  background: ${(props) => props.theme.body};
 
   .wrapper-name {
     display: grid;
@@ -44,7 +43,7 @@ const Header = styled.header`
       grid-area: name;
       font-size: 18px;
       padding-top: 5px;
-      color: var(--title-section);
+      color: ${(props) => props.theme.titleProduct};
     }
   }
 `;

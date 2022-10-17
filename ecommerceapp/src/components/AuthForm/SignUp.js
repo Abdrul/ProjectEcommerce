@@ -128,6 +128,7 @@ const WrapperInput = styled.div`
 
   label {
     padding-left: 10px;
+    color: ${(props) => props.theme.titleProduct};
   }
 
   input {
@@ -136,7 +137,8 @@ const WrapperInput = styled.div`
     outline: none;
     border: none;
     border-radius: 50px;
-    background: var(--light-background);
+    background: ${(props) => props.theme.backgroundCard};
+    color: ${(props) => props.theme.titleProduct};
     font-size: 16px;
     font-family: "DM Sans", sans-serif;
   }

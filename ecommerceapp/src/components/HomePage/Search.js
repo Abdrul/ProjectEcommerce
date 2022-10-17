@@ -11,7 +11,7 @@ function Search() {
 
 const WrapperSearch = styled.section`
   padding: 10px 15px 30px;
-  background: var(--light-background);
+  background: ${(props) => props.theme.body};
   border-radius: 0% 0% 50% 50% / 0% 0% 15% 15%;
   text-align: center;
   input {
@@ -21,6 +21,7 @@ const WrapperSearch = styled.section`
     padding: 15px 30px;
     border-radius: 50px;
     font-size: 16px;
+    background: ${(props) => props.theme.backgroundCard};
     color: var(--title-section);
     &::placeholder {
       color: var(--description);

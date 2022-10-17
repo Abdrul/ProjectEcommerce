@@ -3,11 +3,8 @@ import Login from "../components/AuthForm/Login";
 import SignUp from "../components/AuthForm/SignUp";
 import styled, { useTheme } from "styled-components";
 
-function Registration({ onToggle2 }) {
+function Registration({ toggleTheme }) {
   const [login, setLogin] = useState(true);
-
-  console.log(onToggle2);
-  const test = () => {};
 
   return (
     <Main>
@@ -26,7 +23,7 @@ function Registration({ onToggle2 }) {
 
       {login ? <Login /> : <SignUp />}
 
-      <button onClick={onToggle2}>changer</button>
+      <button onClick={toggleTheme}>changer</button>
     </Main>
   );
 }
@@ -50,7 +47,6 @@ const WrapperButton = styled.div`
   justify-content: center;
   align-items: center;
   gap: 15px;
-  background: ${(props) => props.theme.main};
 `;
 
 const Button = styled.button`

@@ -145,7 +145,7 @@ function ProductDetails() {
 
 const Header = styled.header`
   padding: 15px 25px 0;
-  background: var(--light-background);
+  background: ${(props) => props.theme.backgroundCard};
 `;
 
 const Nav = styled.nav`
@@ -159,7 +159,7 @@ const Nav = styled.nav`
 
 const Main = styled.main`
   .first-section {
-    background: var(--light-background);
+    background: ${(props) => props.theme.backgroundCard};
     padding-bottom: 50px;
     border-radius: 0% 0% 50% 50% / 0% 0% 15% 15%;
 
@@ -180,7 +180,7 @@ const Main = styled.main`
       align-items: center;
 
       h3 {
-        color: var(--title-product);
+        color: ${(props) => props.theme.titleProduct};
       }
     }
 
@@ -200,7 +200,7 @@ const Main = styled.main`
       }
 
       .decrease {
-        background: var(--light-background);
+        background: ${(props) => props.theme.backgroundCard};
         color: #979899;
       }
 
@@ -212,6 +212,7 @@ const Main = styled.main`
       span {
         width: 40px;
         text-align: center;
+        color: ${(props) => props.theme.titleProduct};
       }
     }
 
@@ -245,7 +246,7 @@ const Main = styled.main`
         display: flex;
         align-items: center;
         gap: 15px;
-        border: 1.5px solid var(--light-background);
+        border: 1.5px solid ${(props) => props.theme.backgroundCard};
         border-radius: 10px;
         padding: 5px 0 5px 5px;
 

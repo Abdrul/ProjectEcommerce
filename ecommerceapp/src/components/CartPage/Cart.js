@@ -139,6 +139,8 @@ const Nav = styled.nav`
   display: flex;
   gap: 70px;
   align-items: center;
+  color: ${(props) => props.theme.titleProduct};
+
   a {
     padding-left: 15px;
     display: inline-flex;
@@ -153,6 +155,7 @@ const Section = styled.section`
     padding-top: 25px;
     text-align: center;
     p {
+      color: ${(props) => props.theme.titleProduct};
       span {
         color: var(--price);
       }
@@ -171,7 +174,7 @@ const DisplayCards = styled.div`
     width: 100%;
     p {
       padding-top: 5px;
-      color: var(--title-section);
+      color: ${(props) => props.theme.titleProduct};
     }
     span {
       color: var(--price);
@@ -200,7 +203,7 @@ const DisplayCards = styled.div`
     }
 
     .decrease {
-      background: var(--light-background);
+      background: ${(props) => props.theme.backgroundCard};
       color: #979899;
     }
 
@@ -212,6 +215,7 @@ const DisplayCards = styled.div`
     span {
       width: 40px;
       text-align: center;
+      color: ${(props) => props.theme.titleProduct};
     }
   }
 `;

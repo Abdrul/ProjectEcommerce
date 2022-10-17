@@ -7,7 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./utils/firebase.config";
 import Home from "./pages/Home";
 import { UidContext } from "./components/AppContext";
-import Cart from "./pages/Cart";
+import CartPage from "./pages/CartPage";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import AllProductsPage from "./pages/AllProductsPage";
 import PagesCategories from "./components/PagesCategories";
@@ -22,19 +22,28 @@ function App() {
     });
   }, []);
 
-  const [theme, setTheme] = useState(true);
+  const [theme, setTheme] = useState(() => {
+    const changeTheme = localStorage.getItem("theme");
+    return JSON.parse(changeTheme) ?? true;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(theme));
+  }, [theme]);
 
   const themeOne = {
-    main: "mediumseagreen",
-    body: "blue",
+    body: "#fff",
+    backgroundCard: "#F3F5F7",
+    titleProduct: "#1B1C1E",
   };
   const themeTwo = {
-    main: "violet",
-    body: "red",
+    body: "#0D1F29",
+    backgroundCard: "#1A3848",
+    titleProduct: "#FFFFFF",
   };
 
-  const onToggle = () => {
-    setTheme(!theme);
+  const onToggleTheme = () => {
+    setTheme((prev) => !prev);
   };
 
   return (
@@ -46,14 +55,14 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route
               path="/login"
-              element={<Registration onToggle2={onToggle} />}
+              element={<Registration toggleTheme={onToggleTheme} />}
             />
             <Route path="/home" element={<Home />} />
             <Route path="/allProducts" element={<AllProductsPage />} />
             <Route path="/:categorie" element={<PagesCategories />} />
             <Route path="/fruits/:id" element={<ProductDetails />} />
             <Route path="/vegetables/:id" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
         </div>
       </ThemeProvider>
@@ -72,6 +81,7 @@ body, html {
   height: 100vh;
   width: 100vw;
   font-family: 'DM Sans', sans-serif;
+  background: ${(props) => props.theme.body};
 }
 
 :root{

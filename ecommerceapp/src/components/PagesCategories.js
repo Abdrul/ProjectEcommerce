@@ -50,6 +50,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: ${(props) => props.theme.titleProduct};
   a {
     display: inline-flex;
   }
@@ -63,7 +64,7 @@ const Main = styled.main`
 `;
 
 const DisplayCards = styled.div`
-  background: var(--light-background);
+  background: ${(props) => props.theme.backgroundCard};
   border-radius: 15px;
   padding: 10px;
   height: 190px;
@@ -71,7 +72,7 @@ const DisplayCards = styled.div`
 
   p {
     padding-top: 5px;
-    color: var(--title-section);
+    color: ${(props) => props.theme.titleProduct};
   }
 
   span {

@@ -65,7 +65,7 @@ const WrappedTitle = styled.div`
   justify-content: space-between;
 
   h3 {
-    color: var(--title-section);
+    color: ${(props) => props.theme.titleProduct};
 
     span {
       padding-left: 5px;
@@ -92,11 +92,11 @@ const ListOfProducts = styled.ul`
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: var(--title-section);
+    color: ${(props) => props.theme.titleProduct};
 
     img {
       object-fit: cover;
-      background: var(--light-background);
+      background: ${(props) => props.theme.backgroundCard};
       border-radius: 50%;
       padding: 10px;
     }
