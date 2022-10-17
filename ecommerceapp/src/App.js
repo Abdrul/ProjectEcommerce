@@ -22,10 +22,9 @@ function App() {
     });
   }, []);
 
-  const [theme, setTheme] = useState(() => {
-    const changeTheme = localStorage.getItem("theme");
-    return JSON.parse(changeTheme) ?? true;
-  });
+  const [theme, setTheme] = useState(
+    JSON.parse(localStorage.getItem("theme")) ?? true
+  );
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
@@ -35,11 +34,13 @@ function App() {
     body: "#fff",
     backgroundCard: "#F3F5F7",
     titleProduct: "#1B1C1E",
+    backgroundHomeStart: "#F3F5F7",
   };
   const themeTwo = {
     body: "#0D1F29",
     backgroundCard: "#1A3848",
     titleProduct: "#FFFFFF",
+    backgroundHomeStart: "#0D1F29",
   };
 
   const onToggleTheme = () => {
@@ -55,7 +56,9 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route
               path="/login"
-              element={<Registration toggleTheme={onToggleTheme} />}
+              element={
+                <Registration toggleTheme={onToggleTheme} theme={theme} />
+              }
             />
             <Route path="/home" element={<Home />} />
             <Route path="/allProducts" element={<AllProductsPage />} />
@@ -82,6 +85,7 @@ body, html {
   width: 100vw;
   font-family: 'DM Sans', sans-serif;
   background: ${(props) => props.theme.body};
+  transition: all ease-in-out .3s;
 }
 
 :root{

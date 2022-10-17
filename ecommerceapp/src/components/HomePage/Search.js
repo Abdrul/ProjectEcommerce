@@ -10,8 +10,8 @@ function Search() {
 }
 
 const WrapperSearch = styled.section`
-  padding: 10px 15px 30px;
-  background: ${(props) => props.theme.body};
+  padding: 10px 15px 15px;
+  background: ${(props) => props.theme.backgroundHomeStart};
   border-radius: 0% 0% 50% 50% / 0% 0% 15% 15%;
   text-align: center;
   input {

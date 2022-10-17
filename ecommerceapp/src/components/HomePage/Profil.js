@@ -19,7 +19,7 @@ function Profil() {
 const Header = styled.header`
   display: flex;
   padding: 10px 15px;
-  background: ${(props) => props.theme.body};
+  background: ${(props) => props.theme.backgroundHomeStart};
 
   .wrapper-name {
     display: grid;

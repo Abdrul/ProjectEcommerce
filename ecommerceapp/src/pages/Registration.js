@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Login from "../components/AuthForm/Login";
 import SignUp from "../components/AuthForm/SignUp";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 
-function Registration({ toggleTheme }) {
+function Registration({ toggleTheme, theme }) {
   const [login, setLogin] = useState(true);
-
   return (
-    <Main>
+    <Main changeTheme={theme}>
       <WrapperImg>
         <img src={"/images/logo2.png"} alt="" />
       </WrapperImg>
@@ -23,17 +22,30 @@ function Registration({ toggleTheme }) {
 
       {login ? <Login /> : <SignUp />}
 
-      <button onClick={toggleTheme}>changer</button>
+      <button className="change-theme" onClick={toggleTheme}>
+        Change Theme
+      </button>
     </Main>
   );
 }
 
 const Main = styled.main`
   padding: 0 15px;
+
+  .change-theme {
+    display: block;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    background: ${(props) => (props.changeTheme ? "#0D1F29" : "#fff")};
+    color: ${(props) => (props.changeTheme ? "#fff" : "#0D1F29")};
+    transition: all ease-in-out 0.3s;
+  }
 `;
 
 const WrapperImg = styled.div`
-  margin: 50px 0;
+  padding: 50px 0;
 
   img {
     display: block;
@@ -52,6 +64,7 @@ const WrapperButton = styled.div`
 const Button = styled.button`
   background: ${(props) => (props.test ? "var(--background)" : "white")};
   color: ${(props) => (props.test ? "white" : "var(--background)")};
+  transition: all ease-in-out 0.3s;
   border: none;
   font-family: "DM Sans", sans-serif;
   font-size: 16px;

@@ -95,6 +95,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   color: ${(props) => props.theme.titleProduct};
+
   a {
     display: inline-flex;
   }

@@ -75,6 +75,7 @@ const Form = styled.form`
 
   button {
     margin-top: 20px;
+    margin-bottom: 20px;
     width: 100%;
     border-radius: 50px;
     padding: 15px 50px;
@@ -100,6 +101,7 @@ const WrapperInput = styled.div`
   label {
     padding-left: 10px;
     color: ${(props) => props.theme.titleProduct};
+    transition: all ease-in-out 0.3s;
   }
 
   input {
@@ -112,6 +114,7 @@ const WrapperInput = styled.div`
     font-size: 16px;
     font-family: "DM Sans", sans-serif;
     color: ${(props) => props.theme.titleProduct};
+    transition: all ease-in-out 0.3s;
   }
 `;
 

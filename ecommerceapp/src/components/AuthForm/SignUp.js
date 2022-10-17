@@ -108,6 +108,7 @@ const Form = styled.form`
     text-align: center;
     color: var(--description);
     font-size: 14px;
+    padding-bottom: 20px;
 
     span {
       color: #5d5fef;
@@ -129,6 +130,7 @@ const WrapperInput = styled.div`
   label {
     padding-left: 10px;
     color: ${(props) => props.theme.titleProduct};
+    transition: all ease-in-out 0.3s;
   }
 
   input {
@@ -139,6 +141,7 @@ const WrapperInput = styled.div`
     border-radius: 50px;
     background: ${(props) => props.theme.backgroundCard};
     color: ${(props) => props.theme.titleProduct};
+    transition: all ease-in-out 0.3s;
     font-size: 16px;
     font-family: "DM Sans", sans-serif;
   }
