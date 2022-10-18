@@ -34,6 +34,10 @@ function AllProducts() {
     setSearchTerm(valueInput);
   };
 
+  const handleCloseSearchBar = () => {
+    setToggleSearchBar(false);
+  };
+
   return (
     <>
       <Header>
@@ -44,6 +48,7 @@ function AllProducts() {
               placeholder="Search product"
               onChange={handleSearchTerm}
             />
+            <button onClick={handleCloseSearchBar}>X</button>
           </WrapperSearch>
         ) : (
           <Nav>
@@ -104,6 +109,9 @@ const Nav = styled.nav`
 const WrapperSearch = styled.section`
   padding: 15px 10px 0;
   text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   input {
     font-family: "DM Sans", sans-serif;
     width: 100%;
@@ -116,6 +124,16 @@ const WrapperSearch = styled.section`
     &::placeholder {
       color: var(--description);
     }
+  }
+
+  button {
+    padding: 5px;
+    height: 25px;
+    width: 25px;
+    border: none;
+    border-radius: 50%;
+    background: ${(props) => props.theme.backgroundCard};
+    color: ${(props) => props.theme.titleProduct};
   }
 `;
 

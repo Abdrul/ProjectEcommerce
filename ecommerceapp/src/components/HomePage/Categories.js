@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Categories() {
+function Categories({ themeValue }) {
   const [dataFruits, setDataFruits] = useState([]);
   const [dataVegetables, setDataVegetables] = useState([]);
+  const [displayNoData, setDisplayNoData] = useState(false);
 
   useEffect(() => {
     const fetchNames = async () => {
@@ -23,8 +24,16 @@ function Categories() {
     };
     fetchNames();
   }, []);
+
+  const handleDisplayNoData = () => {
+    setDisplayNoData(!false);
+    setTimeout(() => {
+      setDisplayNoData(false);
+    }, "2000");
+  };
+
   return (
-    <Section>
+    <Section themeValue={themeValue}>
       <WrappedTitle>
         <h3>
           Categories<span>😋</span>
@@ -32,6 +41,15 @@ function Categories() {
         <span>See all</span>
       </WrappedTitle>
       <WrappedSectionOfProducts>
+        <span
+          className={
+            displayNoData
+              ? "undisplay-no-data display-no-data"
+              : "undisplay-no-data"
+          }
+        >
+          no data for this part 😄
+        </span>
         <ListOfProducts>
           <Link to="/fruits" state={dataFruits}>
             <img src={"/images/apple.png"} alt="" />
@@ -42,11 +60,20 @@ function Categories() {
             <p>Vegetables</p>
           </Link>
           <Link>
-            <img src={"/images/diary.png"} alt="" className="diary" />
+            <img
+              src={"/images/diary.png"}
+              alt=""
+              className="diary"
+              onClick={handleDisplayNoData}
+            />
             <p>Diary</p>
           </Link>
           <Link>
-            <img src={"/images/meat.png"} alt="" />
+            <img
+              src={"/images/meat.png"}
+              alt=""
+              onClick={handleDisplayNoData}
+            />
             <p>Meat</p>
           </Link>
         </ListOfProducts>
@@ -79,6 +106,31 @@ const WrappedTitle = styled.div`
 
 const WrappedSectionOfProducts = styled.div`
   padding-top: 20px;
+
+  .undisplay-no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${(props) => (props.themeValue ? "#0D1F29" : "#fff")};
+    color: ${(props) => (props.themeValue ? "#fff" : "#0D1F29")};
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all ease-in-out 0.3s;
+  }
+
+  .display-no-data {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
 `;
 
 const ListOfProducts = styled.ul`

@@ -7,14 +7,14 @@ import Categories from "../components/HomePage/Categories";
 import BestSelling from "../components/HomePage/BestSelling";
 import Navigation from "../components/HomePage/Navigation";
 
-function Home() {
+function Home({ theme }) {
   return (
     <>
       <Profil />
       <Search />
       <WrapperHome>
         <SlidersOffers />
-        <Categories />
+        <Categories themeValue={theme} />
         <BestSelling />
         <Navigation />
       </WrapperHome>

@@ -22,7 +22,8 @@ const WrapperSearch = styled.section`
     border-radius: 50px;
     font-size: 16px;
     background: ${(props) => props.theme.backgroundCard};
-    color: var(--title-section);
+    color: ${(props) => props.theme.titleProduct};
+    outline: none;
     &::placeholder {
       color: var(--description);
     }

@@ -60,7 +60,7 @@ function App() {
                 <Registration toggleTheme={onToggleTheme} theme={theme} />
               }
             />
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<Home theme={theme} />} />
             <Route path="/allProducts" element={<AllProductsPage />} />
             <Route path="/:categorie" element={<PagesCategories />} />
             <Route path="/fruits/:id" element={<ProductDetails />} />

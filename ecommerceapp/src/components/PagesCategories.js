@@ -6,37 +6,74 @@ import { Link } from "react-router-dom";
 function PagesCategories() {
   const [dataApi, setDataApi] = useState([]);
   const location = useLocation();
+  const [toggleSearchBar, setToggleSearchBar] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
   useEffect(() => {
     setDataApi(location.state);
   }, []);
 
+  const handleToggleSearchBar = () => {
+    setToggleSearchBar(!false);
+  };
+
+  const handleSearchTerm = (e) => {
+    const valueInput = e.target.value;
+    setSearchTerm(valueInput);
+  };
+
+  const handleCloseSearchBar = () => {
+    setToggleSearchBar(false);
+  };
+
   return (
     <>
       <Header>
-        <Nav>
-          <Link to="/home">
-            <img src={"/images/arrowBack.png"} alt="" />
-          </Link>
-          <h3>Fruits</h3>
-          <img src={"/images/search.png"} alt="" />
-        </Nav>
+        {toggleSearchBar ? (
+          <WrapperSearch>
+            <input
+              type="text"
+              placeholder="Search product"
+              onChange={handleSearchTerm}
+            />
+            <button onClick={handleCloseSearchBar}>X</button>
+          </WrapperSearch>
+        ) : (
+          <Nav>
+            <Link to="/home">
+              <img src={"/images/arrowBack.png"} alt="" />
+            </Link>
+            <h3>All Products</h3>
+            <img
+              onClick={handleToggleSearchBar}
+              src={"/images/search.png"}
+              alt=""
+            />
+          </Nav>
+        )}
       </Header>
 
       <Main>
-        {dataApi.map((product) => {
-          return (
-            <DisplayCards key={product.id}>
-              <img src={product.img} alt="" />
-              <p> {product.name} </p>
-              <span> 1k, {product.price}$ </span>
-              <div className="add-card">
-                <Link to={`/fruits/${product.id}`} state={product}>
-                  +
-                </Link>
-              </div>
-            </DisplayCards>
-          );
-        })}
+        {dataApi
+          .filter((product) => {
+            return product.name
+              .toLowerCase()
+              .includes(searchTerm.toLowerCase());
+          })
+          .map((product) => {
+            return (
+              <DisplayCards key={product.id}>
+                <img src={product.img} alt="" />
+                <p> {product.name} </p>
+                <span> 1k, {product.price}$ </span>
+                <div className="add-card">
+                  <Link to={`/fruits/${product.id}`} state={product}>
+                    +
+                  </Link>
+                </div>
+              </DisplayCards>
+            );
+          })}
       </Main>
     </>
   );
@@ -44,6 +81,37 @@ function PagesCategories() {
 
 const Header = styled.header`
   padding: 15px 15px 0;
+`;
+
+const WrapperSearch = styled.section`
+  padding: 15px 10px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  input {
+    font-family: "DM Sans", sans-serif;
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--background);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    color: var(--title-section);
+    &::placeholder {
+      color: var(--description);
+    }
+  }
+
+  button {
+    padding: 5px;
+    height: 25px;
+    width: 25px;
+    border: none;
+    border-radius: 50%;
+    background: ${(props) => props.theme.backgroundCard};
+    color: ${(props) => props.theme.titleProduct};
+  }
 `;
 
 const Nav = styled.nav`
