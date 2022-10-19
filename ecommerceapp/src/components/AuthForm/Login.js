@@ -22,7 +22,7 @@ function Login() {
 
     try {
       if (loginInfo.email && loginInfo.password) {
-        const user = await signInWithEmailAndPassword(
+        await signInWithEmailAndPassword(
           auth,
           loginInfo.email,
           loginInfo.password
@@ -105,8 +105,8 @@ const WrapperInput = styled.div`
   }
 
   input {
-    padding: 15px;
     width: 100%;
+    padding: 15px;
     outline: none;
     border: none;
     border-radius: 50px;

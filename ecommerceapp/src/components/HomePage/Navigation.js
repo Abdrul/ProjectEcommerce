@@ -33,7 +33,7 @@ function Navigation() {
             <Img src={"/images/cart.png"} alt="" />
             <span> {countProductsCart} </span>
           </Link>
-          <Link>
+          <Link to="/profil">
             <Img src={"/images/profil.png"} alt="" />
           </Link>
           <Link>

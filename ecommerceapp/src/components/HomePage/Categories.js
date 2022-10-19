@@ -29,7 +29,7 @@ function Categories({ themeValue }) {
     setDisplayNoData(!false);
     setTimeout(() => {
       setDisplayNoData(false);
-    }, "2000");
+    }, "1000");
   };
 
   return (

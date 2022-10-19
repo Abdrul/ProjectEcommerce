@@ -11,6 +11,7 @@ import CartPage from "./pages/CartPage";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import AllProductsPage from "./pages/AllProductsPage";
 import PagesCategories from "./components/PagesCategories";
+import Profil from "./pages/Profil";
 import "./App.css";
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
             <Route path="/fruits/:id" element={<ProductDetails />} />
             <Route path="/vegetables/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/profil" element={<Profil />} />
           </Routes>
         </div>
       </ThemeProvider>
