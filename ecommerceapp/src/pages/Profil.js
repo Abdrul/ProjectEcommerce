@@ -1,10 +1,10 @@
 import React from "react";
 import ProfilSettings from "../components/ProfilPage/ProfilSettings";
 
-function Profil() {
+function Profil({ theme, toggleTheme }) {
   return (
     <div>
-      <ProfilSettings />
+      <ProfilSettings themeValue={theme} toggleTheme={toggleTheme} />
     </div>
   );
 }

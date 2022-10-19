@@ -67,7 +67,10 @@ function App() {
             <Route path="/fruits/:id" element={<ProductDetails />} />
             <Route path="/vegetables/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<CartPage />} />
-            <Route path="/profil" element={<Profil />} />
+            <Route
+              path="/profil"
+              element={<Profil theme={theme} toggleTheme={onToggleTheme} />}
+            />
           </Routes>
         </div>
       </ThemeProvider>

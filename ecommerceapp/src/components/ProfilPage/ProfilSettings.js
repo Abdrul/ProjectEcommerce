@@ -2,27 +2,37 @@ import React, { useState, useEffect, useContext } from "react";
 import { UidContext } from "../../components/AppContext";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { updateEmail, getAuth } from "firebase/auth";
+import { updateEmail, getAuth, updateProfile } from "firebase/auth";
 
-function ProfilSettings() {
+function ProfilSettings({ themeValue, toggleTheme }) {
   const auth = getAuth();
 
   const uid = useContext(UidContext);
   const [toggleChangePseudo, setToggleChangePseudo] = useState(false);
   const [toggleChangeEmail, setToggleChangeEmail] = useState(false);
 
-  // const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
+  const [pseudo, setPseudo] = useState("");
 
-  // const test = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await updateEmail(auth.currentUser, email);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  const test = (e) => {
+  const handlePseudoSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      await updateProfile(auth.currentUser, { displayName: pseudo });
+      setToggleChangePseudo(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleEmailSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await updateEmail(auth.currentUser, email);
+      setToggleChangeEmail(false);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -35,12 +45,15 @@ function ProfilSettings() {
           <h3>Profil</h3>
         </Nav>
       </Header>
-      <Main>
+      <Main changeTheme={themeValue}>
         <section>
           <div className="container">
             {toggleChangePseudo ? (
-              <form onSubmit={test}>
-                <input type="text" />
+              <form onSubmit={handlePseudoSubmit}>
+                <input
+                  type="text"
+                  onChange={(e) => setPseudo(e.target.value)}
+                />
                 <div className="validate-cancel">
                   <button>Validate</button>
                   <button
@@ -63,8 +76,11 @@ function ProfilSettings() {
           </div>
           <div className="container">
             {toggleChangeEmail ? (
-              <form onSubmit={test}>
-                <input type="text" />
+              <form onSubmit={handleEmailSubmit}>
+                <input
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <div className="validate-cancel">
                   <button>Validate</button>
                   <button
@@ -80,14 +96,14 @@ function ProfilSettings() {
                 <button
                   onClick={() => setToggleChangeEmail(!toggleChangeEmail)}
                 >
-                  Change Pseudo
+                  Change Email
                 </button>
               </div>
             )}
           </div>
         </section>
         <div className="container-btn">
-          <button>Change Theme</button>
+          <button onClick={toggleTheme}>Change Theme</button>
         </div>
       </Main>
     </>
@@ -175,6 +191,8 @@ const Main = styled.main`
       border-radius: 15px;
       border: none;
       transition: all ease-in-out 0.3s;
+      background: ${(props) => (props.changeTheme ? "#0D1F29" : "#fff")};
+      color: ${(props) => (props.changeTheme ? "#fff" : "#0D1F29")};
     }
   }
 `;
