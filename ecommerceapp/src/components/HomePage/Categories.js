@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Categories({ themeValue }) {
+function Categories() {
   const [dataFruits, setDataFruits] = useState([]);
   const [dataVegetables, setDataVegetables] = useState([]);
   const [displayNoData, setDisplayNoData] = useState(false);
@@ -27,13 +27,14 @@ function Categories({ themeValue }) {
 
   const handleDisplayNoData = () => {
     setDisplayNoData(!false);
+    console.log("hi");
     setTimeout(() => {
       setDisplayNoData(false);
     }, "1000");
   };
 
   return (
-    <Section themeValue={themeValue}>
+    <Section>
       <WrappedTitle>
         <h3>
           Categories<span>😋</span>
@@ -59,21 +60,12 @@ function Categories({ themeValue }) {
             <img src={"/images/broccoli.png"} alt="" />
             <p>Vegetables</p>
           </Link>
-          <Link>
-            <img
-              src={"/images/diary.png"}
-              alt=""
-              className="diary"
-              onClick={handleDisplayNoData}
-            />
+          <Link onClick={handleDisplayNoData}>
+            <img src={"/images/diary.png"} alt="" className="diary" />
             <p>Diary</p>
           </Link>
-          <Link>
-            <img
-              src={"/images/meat.png"}
-              alt=""
-              onClick={handleDisplayNoData}
-            />
+          <Link onClick={handleDisplayNoData}>
+            <img src={"/images/meat.png"} alt="" />
             <p>Meat</p>
           </Link>
         </ListOfProducts>
@@ -111,16 +103,17 @@ const WrappedSectionOfProducts = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${(props) => (props.themeValue ? "#0D1F29" : "#fff")};
-    color: ${(props) => (props.themeValue ? "#fff" : "#0D1F29")};
+    background: ${(props) => props.theme.titleProduct};
+    color: ${(props) => props.theme.backgroundCard};
     width: 80%;
     height: 50px;
     border-radius: 5px;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
     opacity: 0;
+
     transition: all ease-in-out 0.3s;
   }
 
@@ -128,7 +121,7 @@ const WrappedSectionOfProducts = styled.div`
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
 `;

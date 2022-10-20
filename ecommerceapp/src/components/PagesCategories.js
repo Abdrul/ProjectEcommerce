@@ -8,9 +8,11 @@ function PagesCategories() {
   const location = useLocation();
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     setDataApi(location.state);
+    setTitle(location.pathname);
   }, []);
 
   const handleToggleSearchBar = () => {
@@ -41,14 +43,34 @@ function PagesCategories() {
         ) : (
           <Nav>
             <Link to="/home">
-              <img src={"/images/arrowBack.png"} alt="" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 22 22"
+                fill="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M2.515 10.674a1.875 1.875 0 000 2.652L8.89 19.7c.352.351.829.549 1.326.549H19.5a3 3 0 003-3V6.75a3 3 0 00-3-3h-9.284c-.497 0-.974.198-1.326.55l-6.375 6.374zM12.53 9.22a.75.75 0 10-1.06 1.06L13.19 12l-1.72 1.72a.75.75 0 101.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 101.06-1.06L15.31 12l1.72-1.72a.75.75 0 10-1.06-1.06l-1.72 1.72-1.72-1.72z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </Link>
-            <h3>All Products</h3>
-            <img
+            <h3> {title === "/fruits" ? "Fruits" : "Vegetables"} </h3>
+            <svg
               onClick={handleToggleSearchBar}
-              src={"/images/search.png"}
-              alt=""
-            />
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 22 22"
+              fill="currentColor"
+              className="w-6 h-6"
+            >
+              <path d="M8.25 10.875a2.625 2.625 0 115.25 0 2.625 2.625 0 01-5.25 0z" />
+              <path
+                fillRule="evenodd"
+                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.125 4.5a4.125 4.125 0 102.338 7.524l2.007 2.006a.75.75 0 101.06-1.06l-2.006-2.007a4.125 4.125 0 00-3.399-6.463z"
+                clipRule="evenodd"
+              />
+            </svg>
           </Nav>
         )}
       </Header>
@@ -121,6 +143,12 @@ const Nav = styled.nav`
   color: ${(props) => props.theme.titleProduct};
   a {
     display: inline-flex;
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+    fill: ${(props) => props.theme.titleProduct};
   }
 `;
 
