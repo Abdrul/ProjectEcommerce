@@ -36,6 +36,7 @@ function AllProducts() {
 
   const handleCloseSearchBar = () => {
     setToggleSearchBar(false);
+    setSearchTerm("");
   };
 
   return (

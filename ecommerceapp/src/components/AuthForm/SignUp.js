@@ -35,7 +35,9 @@ function SignUp() {
         setErrorForm("");
         navigate("/home");
       } else {
-        setErrorForm("All fields must be filled in");
+        setErrorForm(
+          "All fields must be filled in, the password need to have min 6 character"
+        );
       }
     } catch (error) {
       console.log(error);
@@ -118,6 +120,7 @@ const Form = styled.form`
 
 const ErrorMsg = styled.p`
   color: var(--price);
+  text-align: center;
 `;
 
 const WrapperInput = styled.div`

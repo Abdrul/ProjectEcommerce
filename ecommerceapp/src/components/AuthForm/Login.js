@@ -35,6 +35,7 @@ function Login() {
       }
     } catch (error) {
       console.log(error);
+      setErrorForm("The password or email is incorrect");
     }
   };
 

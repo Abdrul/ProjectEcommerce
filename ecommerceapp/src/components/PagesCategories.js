@@ -26,6 +26,7 @@ function PagesCategories() {
 
   const handleCloseSearchBar = () => {
     setToggleSearchBar(false);
+    setSearchTerm("");
   };
 
   return (
