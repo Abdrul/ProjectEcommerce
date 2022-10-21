@@ -2,9 +2,12 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../utils/firebase.config";
+import { getAuth } from "firebase/auth";
 
 function SignUp() {
   const navigate = useNavigate();
+  // const ahtu = getAuth();
+  // console.log(auth);
 
   const [signupInfo, setSignupInfo] = useState({
     username: "",
