@@ -74,16 +74,5 @@
       "img": "/images/vegetables/broccoli.png",
       "price": 2
     }
-  ],
-  "diary": [
-    { "id": 1, "name": "tomato", "img": "" },
-    { "id": 2, "name": "tomato", "img": "" },
-    { "id": 3, "name": "tomato", "img": "" },
-    { "id": 4, "name": "tomato", "img": "" }
-  ],
-  "meat": [
-    { "id": 1, "name": "tomato", "img": "" },
-    { "id": 2, "name": "tomato", "img": "" },
-    { "id": 3, "name": "tomato", "img": "" }
   ]
 }
