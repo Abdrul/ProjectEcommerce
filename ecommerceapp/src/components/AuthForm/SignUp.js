@@ -6,8 +6,6 @@ import { getAuth } from "firebase/auth";
 
 function SignUp() {
   const navigate = useNavigate();
-  // const ahtu = getAuth();
-  // console.log(auth);
 
   const [signupInfo, setSignupInfo] = useState({
     username: "",
