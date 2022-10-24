@@ -50,7 +50,7 @@ const WrapperDescriptionContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 65px 25px 0;
+  padding: 65px 25px 65px;
 
   &:after {
     content: url("/images/feuilleblur.png");
@@ -93,9 +93,6 @@ const WrapperDescriptionContainer = styled.div`
   }
 `;
 const WrapperImgDescription = styled.div`
-  position: fixed;
-  bottom: 0;
-
   img {
     width: 100%;
     object-fit: cover;

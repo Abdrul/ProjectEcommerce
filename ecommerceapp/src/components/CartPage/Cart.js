@@ -46,15 +46,13 @@ function Cart() {
   useEffect(() => {
     const fetchNames = async () => {
       try {
-        const res = await Promise.all([
-          axios.get("http://localhost:3000/fruits"),
-          axios.get("http://localhost:3000/vegetables"),
-        ]);
-        const data = res.map((res) => res.data);
-        const concat = data.flat();
-        setDataApi(concat);
-      } catch {
-        throw Error("Promise failed");
+        const response = await axios.get("https://abdrul.github.io/db.json");
+        const fruits = response.data.fruits;
+        const vegetables = response.data.vegetables;
+        const concatDataApi = fruits.concat(vegetables);
+        setDataApi(concatDataApi);
+      } catch (err) {
+        console.log(err);
       }
     };
     fetchNames();

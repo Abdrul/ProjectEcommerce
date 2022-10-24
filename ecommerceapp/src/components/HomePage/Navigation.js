@@ -84,11 +84,8 @@ function Navigation() {
 }
 
 const Footer = styled.footer`
-  margin-bottom: 10px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
+  padding-top: 20px;
 `;
 
 const Nav = styled.nav`
