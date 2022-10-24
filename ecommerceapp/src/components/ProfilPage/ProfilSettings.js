@@ -7,6 +7,10 @@ import { updateEmail, getAuth, updateProfile } from "firebase/auth";
 function ProfilSettings({ themeValue, toggleTheme }) {
   const auth = getAuth();
 
+  const onToggle = () => {
+    toggleTheme();
+  };
+
   const uid = useContext(UidContext);
   const [toggleChangePseudo, setToggleChangePseudo] = useState(false);
   const [toggleChangeEmail, setToggleChangeEmail] = useState(false);
@@ -113,8 +117,11 @@ function ProfilSettings({ themeValue, toggleTheme }) {
             )}
           </div>
         </section>
-        <div className="container-btn">
-          <button onClick={toggleTheme}>Change Theme</button>
+        <div className="toggle">
+          <label className="toggle-switch">
+            <input type="checkbox" checked={themeValue} onChange={onToggle} />
+            <span className="switch"></span>
+          </label>
         </div>
       </Main>
     </>
@@ -198,18 +205,53 @@ const Main = styled.main`
     }
   }
 
-  .container-btn {
+  .toggle {
+    text-align: center;
     padding-top: 50px;
 
-    button {
-      display: block;
-      margin: 0 auto;
-      padding: 15px;
-      border-radius: 15px;
-      border: none;
-      transition: all ease-in-out 0.3s;
-      background: ${(props) => (props.changeTheme ? "#0D1F29" : "#fff")};
-      color: ${(props) => (props.changeTheme ? "#fff" : "#0D1F29")};
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+      margin: 0 12px;
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      .switch {
+        position: absolute;
+        cursor: pointer;
+        background-color: var(--background);
+        border-radius: 25px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: background-color 0.2s ease;
+
+        &::before {
+          position: absolute;
+          content: "";
+          left: 2px;
+          top: 2px;
+          width: 21px;
+          height: 21px;
+          background-color: #fff;
+          border-radius: 50%;
+          transition: transform 0.3s ease;
+        }
+      }
+
+      input[type="checkbox"]:checked + .switch::before {
+        transform: translateX(25px);
+        background-color: var(--background);
+      }
+
+      input[type="checkbox"]:checked + .switch {
+        background-color: var(--title-section);
+      }
     }
   }
 `;
