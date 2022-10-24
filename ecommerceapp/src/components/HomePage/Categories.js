@@ -11,15 +11,13 @@ function Categories() {
   useEffect(() => {
     const fetchNames = async () => {
       try {
-        const res = await Promise.all([
-          axios.get("http://localhost:3000/fruits"),
-          axios.get("http://localhost:3000/vegetables"),
-        ]);
-        const data = res.map((res) => res.data);
-        setDataFruits(data[0]);
-        setDataVegetables(data[1]);
-      } catch {
-        throw Error("Promise failed");
+        const response = await axios.get("https://abdrul.github.io/db.json");
+        const fruits = response.data.fruits;
+        const vegetables = response.data.vegetables;
+        setDataFruits(fruits);
+        setDataVegetables(vegetables);
+      } catch (err) {
+        console.log(err);
       }
     };
     fetchNames();
@@ -27,7 +25,6 @@ function Categories() {
 
   const handleDisplayNoData = () => {
     setDisplayNoData(!false);
-    console.log("hi");
     setTimeout(() => {
       setDisplayNoData(false);
     }, "1000");

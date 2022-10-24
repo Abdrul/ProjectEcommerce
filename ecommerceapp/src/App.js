@@ -12,7 +12,6 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import AllProductsPage from "./pages/AllProductsPage";
 import PagesCategories from "./components/PagesCategories";
 import Profil from "./pages/Profil";
-import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
