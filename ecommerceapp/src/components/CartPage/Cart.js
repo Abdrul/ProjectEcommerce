@@ -220,11 +220,13 @@ const DisplayCards = styled.div`
     .decrease {
       background: ${(props) => props.theme.backgroundCard};
       color: #979899;
+      cursor: pointer;
     }
 
     .increase {
       background: var(--background);
       color: white;
+      cursor: pointer;
     }
 
     span {

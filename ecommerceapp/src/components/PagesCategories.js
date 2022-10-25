@@ -132,6 +132,7 @@ const WrapperSearch = styled.section`
     width: 25px;
     border: none;
     border-radius: 50%;
+    cursor: pointer;
     background: ${(props) => props.theme.backgroundCard};
     color: ${(props) => props.theme.titleProduct};
   }
@@ -150,6 +151,7 @@ const Nav = styled.nav`
     width: 30px;
     height: 30px;
     fill: ${(props) => props.theme.titleProduct};
+    cursor: pointer;
   }
 `;
 

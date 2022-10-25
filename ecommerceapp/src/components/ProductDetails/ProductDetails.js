@@ -9,7 +9,6 @@ function ProductDetails() {
 
   const [countQuantity, setCountQuantity] = useState(1);
   const [toggleAddToCart, setToggleAddToCart] = useState(false);
-  // console.log(countQuantity);
 
   const handleIncreaseQuantity = () => {
     if (countQuantity > 99) {
@@ -202,11 +201,13 @@ const Main = styled.main`
       .decrease {
         background: ${(props) => props.theme.backgroundCard};
         color: #979899;
+        cursor: pointer;
       }
 
       .increase {
         background: var(--background);
         color: white;
+        cursor: pointer;
       }
 
       span {
@@ -307,6 +308,7 @@ const Footer = styled.footer`
     padding: 15px 0;
     color: white;
     font-size: 18px;
+    cursor: pointer;
   }
 `;
 

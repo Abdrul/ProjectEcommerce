@@ -90,6 +90,8 @@ body, html {
   font-family: 'DM Sans', sans-serif;
   background: ${(props) => props.theme.body};
   transition: all ease-in-out .3s;
+  max-width: 350px;
+  margin: 0 auto;
 }
 
 :root{

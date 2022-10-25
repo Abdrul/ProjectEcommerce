@@ -102,7 +102,7 @@ const WrappedSectionOfProducts = styled.div`
     justify-content: center;
     background: ${(props) => props.theme.titleProduct};
     color: ${(props) => props.theme.backgroundCard};
-    width: 80%;
+    width: 300px;
     height: 50px;
     border-radius: 5px;
     position: absolute;
