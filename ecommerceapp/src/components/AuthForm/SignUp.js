@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../utils/firebase.config";
-import { getAuth } from "firebase/auth";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -19,7 +18,6 @@ function SignUp() {
 
   const handleOnChange = (e) => {
     setSignupInfo({ ...signupInfo, [e.target.name]: e.target.value });
-    // setSignupInfo({ password: e.target.value.match(regexPassword) });
   };
 
   const handleSubmit = (e) => {
