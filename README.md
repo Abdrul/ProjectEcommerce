@@ -1,7 +1,7 @@
 # E-Commerce-Shop Only Version Mobile
 
 
-### C'est une petite application e-commerce avec un système d'ajout au panier
+### It is a small e-commerce application with an add to cart system
 #### Only version mobile
 
 ## [LIVE HERE](https://hilarious-dodol-cf85ee.netlify.app/)
