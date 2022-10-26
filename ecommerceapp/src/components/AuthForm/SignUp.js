@@ -13,17 +13,24 @@ function SignUp() {
     password: "",
   });
 
+  const regexPassword = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,32}$/;
+
   const [errorForm, setErrorForm] = useState("");
 
   const handleOnChange = (e) => {
     setSignupInfo({ ...signupInfo, [e.target.name]: e.target.value });
+    // setSignupInfo({ password: e.target.value.match(regexPassword) });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     try {
-      if (signupInfo.email && signupInfo.password && signupInfo.username) {
+      if (
+        signupInfo.email &&
+        signupInfo.password.match(regexPassword) &&
+        signupInfo.username
+      ) {
         auth
           .createUserWithEmailAndPassword(signupInfo.email, signupInfo.password)
           .then(async (userAuth) => {
@@ -37,7 +44,7 @@ function SignUp() {
         navigate("/home");
       } else {
         setErrorForm(
-          "All fields must be filled in, the password need to have min 6 character"
+          "All fields must be filled in, The password must contain at least 6 characters, and have a capital letter and 1 digit"
         );
       }
     } catch (error) {
