@@ -120,6 +120,7 @@ const WrapperButton = styled.div`
 `;
 
 const Button = styled.button`
+  cursor: pointer;
   background: ${(props) => (props.test ? "var(--background)" : "white")};
   color: ${(props) => (props.test ? "white" : "var(--background)")};
   transition: all ease-in-out 0.3s;

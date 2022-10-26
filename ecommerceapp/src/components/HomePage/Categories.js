@@ -36,7 +36,9 @@ function Categories() {
         <h3>
           Categories<span>😋</span>
         </h3>
-        <span>See all</span>
+        <span>
+          <Link to="/allProducts">See all</Link>
+        </span>
       </WrappedTitle>
       <WrappedSectionOfProducts>
         <span
@@ -89,7 +91,11 @@ const WrappedTitle = styled.div`
   }
 
   span {
-    color: #23aa49;
+    cursor: pointer;
+    a {
+      color: #23aa49;
+      text-decoration: none;
+    }
   }
 `;
 

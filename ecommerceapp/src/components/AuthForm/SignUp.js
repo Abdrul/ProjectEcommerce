@@ -45,8 +45,12 @@ function SignUp() {
     }
   };
 
+  const handleSkipLogin = () => {
+    navigate("/home");
+  };
+
   return (
-    <div>
+    <Main>
       <Form onSubmit={handleSubmit} composant={Form}>
         <WrapperInput>
           <label htmlFor="username">Username</label>
@@ -83,9 +87,28 @@ function SignUp() {
           <span>terms of use</span>
         </p>
       </Form>
-    </div>
+      <button onClick={handleSkipLogin} className="skip">
+        Skip
+      </button>
+    </Main>
   );
 }
+
+const Main = styled.main`
+  .skip {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 50px;
+    padding: 15px 0;
+    background: var(--background);
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-family: "DM Sans", sans-serif;
+  }
+`;
 
 const Form = styled.form`
   display: flex;

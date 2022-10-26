@@ -39,8 +39,12 @@ function Login() {
     }
   };
 
+  const handleSkipLogin = () => {
+    navigate("/home");
+  };
+
   return (
-    <div>
+    <Main>
       <Form onSubmit={handleSubmit}>
         <WrapperInput>
           <label htmlFor="email">Email</label>
@@ -63,9 +67,28 @@ function Login() {
         <ErrorMsg>{errorForm}</ErrorMsg>
         <button>Continue</button>
       </Form>
-    </div>
+      <button onClick={handleSkipLogin} className="skip">
+        Skip
+      </button>
+    </Main>
   );
 }
+
+const Main = styled.main`
+  .skip {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 50px;
+    padding: 15px 0;
+    background: var(--background);
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-family: "DM Sans", sans-serif;
+  }
+`;
 
 const Form = styled.form`
   display: flex;
@@ -75,11 +98,12 @@ const Form = styled.form`
   margin-top: 25px;
 
   button {
+    cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
     border-radius: 50px;
-    padding: 15px 50px;
+    padding: 15px 0;
     background: var(--background);
     color: #fff;
     border: none;
